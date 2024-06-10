@@ -1,0 +1,266 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+ .edit-ds h4{
+    font-size: 12px;
+ }
+ .edit-ds p {
+    font-size: 10px;
+ }
+ .edit-ds p:hover{
+    color: aqua;
+ }
+ .edit-ds input:hover{
+    border: 0.4 solid black;
+ }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+
+   
+ <div class="container-fluid">
+    <header>
+        <div class="container-fluid bgtop1 ">
+            <h4 i class='bx bxs-phone small'></i> ĐIỆN THOẠI:</h4>
+            <span class="small text-warning">09771*4545</span>
+         </div>
+        <div class="container">
+            <div class="d-flex justify-content-between mt-4">
+                <div></div>
+                <h1 class="text-center  maulogo ">Mega Shoes</h1>
+                <div  class="mt-2">
+                    <i class='bx bx-search'></i>
+                  
+                    <a href="dangnhap.html"> <i class='bx bx-user-circle' ></i></a>
+                    <i class='bx bx-shopping-bag'></i>
+                   </div>
+
+            </div>
+           
+            <div>
+                <ul class="nav justify-content-center">
+                    
+                    <li class="nav-item">
+                      <a class="nav-link disabled" href="#">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link disabled" href="#">Giới thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link disabled" href="#">Liên hệ</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link disabled" href="#">Danh mục sản phẩm</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link disabled" href="#">Tin tức</a>
+                    </li>
+                   
+                  </ul>
+              <!-- <div class="list-ds  mt-3">
+               <ul class="list-inline  d-flex justify-content-center">
+                   <li><a href="index.html" class="m-3">Trang chủ</a></li>
+                   <li><a href="" class="m-3">Giới thiệu</a></li>
+                   <li><a href="sanpham.html" class="m-3">Danh mục sản phẩm</a></li>
+                   <li><a href="tintuc.html"class="m-3">Tin tức </a></li>
+                   <li><a href="lienhe.html" class="m-3">Liên hệ</a></li>
+                 </ul>
+              </div> -->
+             
+            </div>
+        </div>
+      <div class="bg-light">
+        <p>Trang chủ / Giỏ hàng</p>
+      </div>
+    </header>
+<section>
+    <div class="container">
+        <h1 class="text-center">Giỏ hàng của bạn</h1>
+        <p class="text-center">Có 2 sản phẩm trong giỏ hàng</p>
+       <div class="container mt-4">
+        
+            <div class="row d-flex justify-content-between">
+                <div class="col-md-6">
+                    <table>
+                        <tr class="mb-3">
+                            <td>
+                                <div class="border border-danger">
+                                    <img src="images/3.jpg" height="130px" class="mh-100">
+                                </div>
+                            </td>
+                            <td class="ml-3 ">
+                               <div class="ms-3">
+                                <h5>Football Shoes for Men</h5>
+                                <p>
+                                    32,000,000₫
+                                </p>
+                                <p>Xanh/39</p>
+                                <p>
+                                    <div class="group-button">
+                                        <button type="button" class="soluong border" onclick="thaydoisoluong('-')" style="width: 30px;">-</button>
+                                        <input type="tel" class="soluong1 text-center border" value="1" id="soluong" style="width: 90px; ">
+                                        <button type="button" class="soluong border" onclick="thaydoisoluong('+')" style="width: 30px;">+</button>
+                                      </div>
+                                </p>
+                               </div>
+                            </td>
+                            
+                        </tr>
+                       
+                    </table>
+                </div>
+                <div class="col-md-1">
+                    <div class="d-flex flex-column align-items-start">
+                        <div class="mb-3">
+                           <a href="#"> <p class="display-6">X</p></a>
+                        </div>
+                        <div class="mt-5">
+                            <p>32,000,000₫</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <hr>
+                
+            </div>
+        
+            
+        
+       </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="row d-flex justify-content-between">
+            <div class="col-md-6 mt-3">
+              <textarea class="form-control w-100" rows="3" > 
+             Ghi chú
+              </textarea>
+            </div>
+            <div class="col-md-3">
+                <p>Tổng tiền :<h3>64,000,000₫</h3></p>
+                <div class="d-flex">
+                    <button class="btn btn-primary rounded-0 btn-sm">Tiếp tục mua hàng</button>
+                    <button class="btn btn-primary rounded-0 tn-sm ms-2">Thanh toán</button>
+                </div>
+            </div>
+      </div>
+    </div>
+</section>
+
+
+
+<footer>
+    <div class="container-fluid">
+        <hr>
+        <div class="d-flex justify-content-between  align-items-center mt-4 form-icon"> 
+            <div>
+                <div>
+                    <h5><i class='bx bx-envelope'></i> <span>Đăng kí nhận tin</span>  </h5>
+                </div>
+            </div>
+            <div>
+                <form class="row g-2 align-items-center">
+                    <div class="col-auto">
+                        <input type="text" name="" placeholder="Nhập email của bạn" style="width: 400px; height: 30px;" class="rounded-0 border">
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn-primary btn-sm rounded-0">Đăng kí</button>
+                    </div>
+                </form>
+            </div>
+            <div>
+                <h5><i class='bx bxs-phone'></i><span>Đăng kí/Mua hàng :18000345</span> </h5>
+            </div>
+           </div>
+           <hr>
+           <div>
+             <div class="row size-footer">
+                 <div class="col-md-4">
+                    <h4>Giới thiệu</h4>
+                    <p>Mega Shoes trang mua sắm trực tuyến của thương hiệu thời trang Lama,
+                         thời trang nam, nữ, phụ kiện, giúp bạn tiếp cận xu hướng thời trang mới nhất.</p>
+                         <img src="images/logobct.png">
+                 </div>
+                 <div class="col-md-2">
+                    <h4 class="text-left">Liên kết</h4>
+                    <div >
+                    <ul>
+                        <li><a href="">Tìm kiến</a></li>
+                        <li><a href="">Giới thiệu</a></li>
+                        <li><a href="">Chính sách đổi trả</a></li>
+                        <li><a href="">Chính sách bảo mật</a></li>
+                        <li><a href="">Điều khoản dịch vụ</a></li>
+                    </ul>
+                 </div>
+                 </div>
+                 <div class="col-md-3">
+                    <h4>Thông tin liên hệ</h4>
+                    <p>Tầng X, tòa nhà Flemington, số XXX, đường Lê Đại Hành, phường XX, quận XX, Tp. Hồ Chí Minh.</p>
+                    <p>Hotline:1900.XXX.XXX</p>
+                    <p>Email: hotrotructuyen@gmail.com</p>
+                  
+                 </div>
+                 <div class="col-md-3">
+                    <h4>Fanpage</h4>
+                    <iframe width="220" height="100" src="https://www.youtube.com/embed/-iqWkbbsvGk?si=aezgIFYTu44XNxnm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                 </div>
+             </div>
+             <hr>
+             <p class="text-center" style="font-size: 10px;">Copyright © 2024 Mega Shoes. Powered by Haravan
+    
+             </p>
+           </div>
+    
+    </div>
+            
+        </footer>
+    
+ </div>
+    
+
+    <script src="js/bootstrap.min.js">
+
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('p img').mouseenter(function(){
+                let imgPath = $(this).attr('src');
+                $('#main-img').attr('src', imgPath);
+            });
+        });
+      function thaydoisoluong(toantu) {
+                let luong = $('#soluong');
+                let soluong = luong.val();
+    
+                if (toantu === '-') {
+                    if (parseInt(soluong) > 1) {
+                        luong.val(parseInt(soluong) - 1);
+                    }
+                } else if (toantu === '+') {
+                    luong.val(parseInt(soluong) + 1);
+                } else {
+                    alert('cảnh báo nguy hiểm');
+                }
+            }
+    
+            $(() => {
+                $('p img').click(function () {
+                    let imgPath = $(this).attr('src');
+                    $('#main_img').attr('src', imgPath);
+                })
+            }) 
+    </script>
+    
+     
+      
+    
+</body>
+</html>
