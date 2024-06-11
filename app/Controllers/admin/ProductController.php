@@ -1,67 +1,68 @@
 <?php
 namespace App\Controllers\Admin;
 
+use App\Models\AttributeModel;
 use App\Models\CategoryModel;
 use App\Models\ProductModel;
+use App\Models\ProductAttrModel;
 
 class ProductController extends BaseController{
-   public function list(){
-      $product=ProductModel::getProductList();
-    $this->view("product/listsp",["product"=>$product]);
-   }
-   public function showadd(){
-      $category=CategoryModel::all();
-      $this->view("product/addprd",["category"=>$category]);
-   }
-   public function add(){
-      
-         $id_product = $_POST['id_product'];
-         $productName = $_POST['name'];
-         $productDescription = $_POST['description'];
-         $productCategory = $_POST['category'];
-         $productStatus = 1; // You can set the default status or get it from the form
- 
-         $detailColor = $_POST['color'];
-         $detailSize = $_POST['size'];
-         $detailPrice = $_POST['price'];
-         $detailQty = $_POST['qty'];
- 
-         // Handle file upload
-         if (isset($_FILES['path']) && $_FILES['path']['error'] == 0) {
-             $uploadDir = 'images/';
-             $uploadFile = $uploadDir . basename($_FILES['path']['name']);
-             if (move_uploaded_file($_FILES['path']['tmp_name'], $uploadFile)) {
-                 $imagePath = $uploadFile;
-             } else {
-                 $imagePath = '';
-             }
-         } else {
-             $imagePath = '';
-         }
- 
-         $productData = [
-             'id_product' => $id_product,
-             'name' => $productName,
-             'describe' => $productDescription,
-             'status' => $productStatus,
-             'id_category' => $productCategory
-         ];
- 
-         $detailData = [
-             'color' => $detailColor,
-             'size' => $detailSize,
-             'price' => $detailPrice,
-             'qty' => $detailQty
-         ];
- 
-         $imageData = [
-             'path' => $imagePath
-         ];
- 
-         $product = new ProductModel();
-         $product->insertProductWithDetails($productData, $detailData, $imageData);
- 
-         // header("Location: success_page.php"); // Redirect to a success page
-     }
- }
+    public function list(){
+        $products=ProductModel::all();
+        $this->view("product/listsp",['products'=>$products]);
+        }
+    public function showadd(){
+        $category = CategoryModel::all();
+        $size = AttributeModel::where("name", '=', "size")->get();
+        $color = AttributeModel::where("name", '=', "color")->get();
+        $this->view("product/addprd", ["category" => $category, "size" => $size, 'color' => $color]);
+    }
+
+    public function add(){
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+         echo print_r($_POST);
+            $data = [
+                'id_product'=>$_POST['id_product'],
+                'id_category' => $_POST['id_category'],
+                'name' => $_POST['name'],
+                'price' => $_POST['price'],
+                'sale_price'=>$_POST['sale_price'],
+                'status'=>1,
+
+                // 'qty' => $_POST['qty'],
+                'describe' => $_POST['describe']
+            ];
+
+            if (isset($_FILES['path']) && $_FILES['path']['error'] == 0) {
+                $target_dir = "images/";
+                $target_file = $target_dir . basename($_FILES["path"]["name"]);
+                if (move_uploaded_file($_FILES["path"]["tmp_name"], $target_file)) {
+                    $data['path'] = $target_file;
+                }
+            }
+
+            // Lưu sản phẩm
+            $id_product = ProductModel::add($data);
+
+            // Lưu thuộc tính size và color
+            if ($id_product) {
+                $sizes = $_POST['sizes'] ?? [];
+                $colors = $_POST['colors'] ?? [];
+
+                foreach ($sizes as $size) {
+                    ProductAttrModel::add(['id_product' => $id_product, 'id_attribute' => $size]);
+                }
+
+                foreach ($colors as $color) {
+                    ProductAttrModel::add(['id_product' => $id_product, 'id_attribute' => $color]);
+                }
+            }
+
+            // Điều hướng lại trang hoặc hiển thị thông báo thành công
+            header("Location: " . ROOT_PATH . "list/product");
+            exit();
+        }
+    }
+}
+
 ?>

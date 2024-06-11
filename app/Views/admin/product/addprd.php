@@ -4,16 +4,16 @@
     <form action="<?= ROOT_PATH ?>add/product" method="post" enctype="multipart/form-data">
       <div>
         <p>Danh mục</p>
-        <select name="category" id="category" class="form-control">
+        <select name="id_category" id="category" class="form-control">
           <option value="1">-Danh mục-</option>
-          <?php foreach($category as $category1): ?>
-          <option value="<?= $category1['id_category'] ?>"> <?= $category1['name_cate'] ?> </option>
+          <?php foreach ($category as $category1) : ?>
+            <option value="<?= $category1['id_category'] ?>"> <?= $category1['name'] ?> </option>
           <?php endforeach; ?>
         </select>
       </div>
       <div class="mb-2 mt-2">
         <label for="id_product" class="form-label">Mã sản phẩm</label>
-        <input type="text" class="form-control" id="id_product" placeholder="Enter product id" name="id_product">
+        <input type="text" class="form-control" id="id_product" placeholder="Enter name" name="id_product">
       </div>
       <div class="mb-2 mt-2">
         <label for="name" class="form-label">Tên sản phẩm</label>
@@ -28,20 +28,27 @@
         <input type="text" class="form-control" id="price" placeholder="Enter price" name="price">
       </div>
       <div class="mb-2 mt-2">
+        <label for="sale_price" class="form-label">Giá ưu đãi</label>
+        <input type="text" class="form-control" id="sale_price" placeholder="Enter sale_price" name="sale_price">
+      </div>
+      <!-- <div class="mb-2 mt-2">
         <label for="qty" class="form-label">Số lượng</label>
-        <input type="text" class="form-control" id="qty" placeholder="Enter qty" name="qty">
+        <input type="text" class="form-control" id="qty" placeholder="Enter qty" name="qty">      </div> -->
+      <div class="mb-2 mt-2">
+        <label for="size" class="form-label">Size</label><br>
+        <?php foreach ($size as $sizes) : ?>
+          <label class="p-1"> <input type="checkbox" name="sizes[]" id="" value="<?= $sizes['id_attribute'] ?>"> <?= $sizes['value'] ?></label>
+        <?php endforeach; ?>
       </div>
       <div class="mb-2 mt-2">
-        <label for="size" class="form-label">Size</label>
-        <input type="text" class="form-control" id="size" placeholder="Enter size" name="size">
+        <label for="color" class="form-label">Color</label><br>
+        <?php foreach ($color as $colors) : ?>
+          <label class="p-1"><input type="checkbox" name="colors[]" id="" value="<?= $colors['id_attribute'] ?>"><i class='bx bxs-brush' style="color:<?= $colors['value'] ?>;font-size:20px;"></i></label>
+        <?php endforeach; ?>
       </div>
       <div class="mb-2 mt-2">
-        <label for="color" class="form-label">Màu sắc</label>
-        <input type="text" class="form-control" id="color" placeholder="Enter color" name="color">
-      </div>
-      <div class="mb-2 mt-2">
-        <label for="description" class="form-label">Mô tả</label>
-        <textarea class="col-12 rol2 border rounded-2" id="description" name="description"></textarea>
+        <label for="describe" class="form-label">Mô tả</label>
+        <textarea class="col-12 rol2 border rounded-2" id="describe" name="describe"></textarea>
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>

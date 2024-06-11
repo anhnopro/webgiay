@@ -1,6 +1,8 @@
 <?php
+
 namespace App\Models;
-class CategoryModel extends BaseModel{
-    protected $tableName="category";
+
+class CategoryModel extends BaseModel
+{
+    protected $tableName = "category";
 }
-?>

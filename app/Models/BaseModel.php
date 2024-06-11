@@ -31,13 +31,26 @@ class BaseModel
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
   }
-  public static function add($data) {
+  public static function where($column, $codition, $value)
+  {
+    $model = new static;
+    $model->sqlBuilder = "SELECT * FROM $model->tableName WHERE `$column` $codition '$value' ";
+    return $model;
+  }
+  public function get()
+  {
+    $stmt = $this->conn->prepare($this->sqlBuilder);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
+  public static function add($data)
+  {
     $model = new static;
     $model->sqlBuilder = "INSERT INTO $model->tableName (";
     $values = "";
     foreach ($data as $column => $value) {
-        $model->sqlBuilder .= "`{$column}`, ";
-        $values .= ":{$column}, ";
+      $model->sqlBuilder .= "`{$column}`, ";
+      $values .= ":{$column}, ";
     }
 
     $model->sqlBuilder = rtrim($model->sqlBuilder, ", ") . ")";
@@ -46,5 +59,5 @@ class BaseModel
     $stmt = $model->conn->prepare($model->sqlBuilder);
     $stmt->execute($data);
     return $model->conn->lastInsertId();
-}
+  }
 }

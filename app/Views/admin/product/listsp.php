@@ -6,25 +6,26 @@
                     <th>Mã sản phẩm</th>
                     <th>Mục</th>
                     <th>Tên sản phẩm</th>
-                    
                     <th>Ảnh</th>
-                     <th>Số lượng</th>
+                    <th>Giá</th>
+                    <th>Giá ưu đãi</th>
                     <th>Tình trạng</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($product as $product1) : ?>
+                <?php foreach ($products as $product) : ?>
                     <tr>
-                        <td><?= $product1['id_product'] ?></td>
-                        <td><?= $product1['category_name'] ?></td>
-                        <td><?= $product1['product_name']  ?></td>
+                        <td><?= $product['id_product'] ?></td>
+                        <td><?= $product['id_category'] ?></td>
+                        <td><?= $product['name']  ?></td>
                         <td>
                             <div style="height: 60px;">
                                 <img src="/images/11.jpg" class="w-100 h-100">
                             </div>
                         </td>
-                       <td><?=$product1['total_qty']  ?></td>
+                       <td><?=$product['price']  ?></td>
+                       <td><?=$product['sale_price'] ?></td>
                         <td>
                             <span class="badge bg-danger">Hết hàng</span>
                         </td>
