@@ -55,7 +55,7 @@
                                 Danh sách sản phẩm
                             </button>
                             <div class="dropdown-menu" >
-                                <a class="dropdown-item" href="#">Danh sách</a>
+                                <a class="dropdown-item" href="<?= ROOT_PATH ?>list/product">Danh sách</a>
                                 <a class="dropdown-item" href="#">Thêm</a>
                                 <a class="dropdown-item" href="#">Thùng giác</a>
                             </div>

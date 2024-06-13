@@ -20,6 +20,7 @@ use App\Router;
   Router::get("/list/product",[AdminProductController::class,'list']);
   Router::get("/add/product",[AdminProductController::class,"showadd"]);
   Router::post("/add/product",[AdminProductController::class,"add"]);
+  Router::get("/detail/product/{id}", [AdminProductController::class, "listDetail"]);
 
 
   //attribute

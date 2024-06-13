@@ -11,12 +11,20 @@ class ProductController extends BaseController{
         $products=ProductModel::all();
         $this->view("product/listsp",['products'=>$products]);
         }
+     
     public function showadd(){
         $category = CategoryModel::all();
         $size = AttributeModel::where("name", '=', "size")->get();
         $color = AttributeModel::where("name", '=', "color")->get();
         $this->view("product/addprd", ["category" => $category, "size" => $size, 'color' => $color]);
     }
+    public function listDetail($id) {
+        $product_detail = ProductModel::listprdDetail($id);
+        $this->view("product/detailprd", ["product_detail"=>$product_detail]);
+    }
+    
+    
+    
 
     public function add(){
         if($_SERVER['REQUEST_METHOD'] == 'POST'){

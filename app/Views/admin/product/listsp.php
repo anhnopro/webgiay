@@ -40,7 +40,11 @@
                                     </a>
                                     <a class="dropdown-item" href="<?= ROOT_PATH ?>add/product">Thêm</a>
                                     <a class="dropdown-item" href="#">Sửa</a>
-                                    <a class="dropdown-item" href="#">Xem</a>
+                                    <a class="dropdown-item" href="<?= ROOT_PATH ?>detail/product/<?= $product['id_product'] ?>">Xem Chi Tiết</a>
+
+
+
+                                   
                                 </div>
                             </div>
                         </td>
