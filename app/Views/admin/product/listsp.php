@@ -21,7 +21,7 @@
                         <td><?= $product['name']  ?></td>
                         <td>
                             <div style="height: 60px;">
-                                <img src="/images/11.jpg" class="w-100 h-100">
+                                <img src="<?= ROOT_PATH  ?>/<?= $product['image']  ?>" class="w-100 h-100">
                             </div>
                         </td>
                        <td><?=$product['price']  ?></td>
@@ -39,7 +39,7 @@
                                         Xóa
                                     </a>
                                     <a class="dropdown-item" href="<?= ROOT_PATH ?>add/product">Thêm</a>
-                                    <a class="dropdown-item" href="#">Sửa</a>
+                                    <a class="dropdown-item" href="<?= ROOT_PATH ?>update/product/<?= $product['id_product'] ?>">Sửa</a>
                                     <a class="dropdown-item" href="<?= ROOT_PATH ?>detail/product/<?= $product['id_product'] ?>">Xem Chi Tiết</a>
 
 

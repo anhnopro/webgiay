@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>Document</title>
@@ -47,25 +47,25 @@
         </div>
         <section>
             <div class="container-fluid bgtop1 text-right">
-                <img src="images/banner3.jpg" style="width: 100%;height: auto;">
+                <img src="assets/images/banner3.jpg" style="width: 100%;height: auto;">
                 <div class="row">
                     <div class="col-md-3 text-center ">
-                        <img src="images/support_1_ic.png" alt="" width="70" height="40">
+                        <img src="assets/images/support_1_ic.png" alt="" width="70" height="40">
                         <h3>Giao Hàng Miễn Phí</h3>
                         <span>Cho đơn hàng trên 599k</span>
                     </div>
                     <div class="col-md-3 text-center">
-                        <img src="images/support_1_ic.png" alt="" width="70" height="40">
+                        <img src="assets/images/support_1_ic.png" alt="" width="70" height="40">
                         <h3>Miễn Phí Đổi Trả</h3>
                         <span>Trong vòng 7 ngày</span>
                     </div>
                     <div class="col-md-3 text-center">
-                        <img src="images/support_3_ic.png" alt="" width="70" height="40">
+                        <img src="assets/images/support_3_ic.png" alt="" width="70" height="40">
                         <h3>Đặt Hàng Trực Tuyến</h3>
                         <span>Hotline : 1900.XXX.XXX</span>
                     </div>
                     <div class="col-md-3 text-center">
-                        <img src="images/support_4_ic.png" alt="" width="70" height="40">
+                        <img src="assets/images/support_4_ic.png" alt="" width="70" height="40">
                         <h3>Hỗ Trợ 24/7</h3>
                         <span>Hỗ Trợ online /offline 24/7</span>
                     </div>
@@ -81,60 +81,19 @@
             <h1 class="text-center">Sản phẩm mới</h1>
             <div class="row mt-4">
                 <div class="col-md-6">
-                    <img src="images/sp15.jpg" width="550" height="300" class="zoom-img img-fluid">
+                    <img src="assets/images/sp15.jpg" width="550" height="300" class="zoom-img img-fluid">
                 </div>
-                <?php foreach ($product as $products) : ?>
+                <?php foreach ($products as $product) : ?>
                     <div class="col-md-2 mb-3">
-                        <img src="<?= ROOT_PATH ?>images/<?= $products['path'] ?>" width="200" height="200" class="zoom-img img-fluid">
-                        <h4><?= $products['product_name'] ?></h4>
-                        <span>Giá: <?= $products['price'] ?></span>
+                        <img src="<?= ROOT_PATH ?>/<?= $product['image'] ?>" width="200" height="200" class="zoom-img img-fluid">
+                        <h4><?= $product['name'] ?></h4>
+                        <span>Giá: <?= $product['price'] ?></span>
                     </div>
                 <?php endforeach; ?>
 
-                <div class="col-md-2 mb-3">
-                    <img src="images/sp2.jpg" width="200" height="200" class="zoom-img img-fluid">
-                    <h4>Tên sản phẩm</h4>
-                    <span>400.000VNĐ</span>
-                </div>
-                <div class="col-md-2 mb-3">
-                    <img src="images/sp3.jpg" width="200" height="200" class="zoom-img img-fluid">
-                    <h4>Tên sản phẩm</h4>
-                    <span>400.000VNĐ</span>
-                </div>
+               
             </div>
-            <div class="row">
-                <div class="col-md-2 mb-3">
-                    <img src="images/sp3.jpg" width="200" height="200" class="zoom-img img-fluid">
-                    <h4>Tên sản phẩm</h4>
-                    <span>400.000VNĐ</span>
-                </div>
-                <div class="col-md-2 mb-3">
-                    <img src="images/sp4.jpg" width="200" height="200" class="zoom-img img-fluid">
-                    <h4>Tên sản phẩm</h4>
-                    <span>400.000VNĐ</span>
-                </div>
-                <div class="col-md-2 mb-3">
-                    <img src="images/sp5.jpg" width="200" height="200" class="zoom-img img-fluid">
-                    <h4>Tên sản phẩm</h4>
-                    <span>400.000VNĐ</span>
-                </div>
-                <div class="col-md-2 mb-3">
-                    <img src="images/sp6.jpg" width="200" height="200" class="zoom-img img-fluid">
-                    <h4>Tên sản phẩm</h4>
-                    <span>400.000VNĐ</span>
-                </div>
-                <div class="col-md-2 mb-3">
-                    <img src="images/sp7.jpg" width="200" height="200" class="zoom-img img-fluid">
-                    <h4>Tên sản phẩm</h4>
-                    <span>400.000VNĐ</span>
-                </div>
-                <div class="col-md-2 mb-3">
-                    <img src="images/sp8.jpg" width="200" height="200" class="zoom-img img-fluid">
-                    <h4>Tên sản phẩm</h4>
-                    <span>400.000VNĐ</span>
-                </div>
-
-            </div>
+        
         </div>
 
     </section>
@@ -144,7 +103,7 @@
                 <div class="col-md-6 bg-white">
                     <div class="bg-new">
                         <h1 class="text-center ">NEW</h1>
-                        <img class="" src="images/sp9.png" width="450" height="400">
+                        <img class="" src="assets/images/sp9.png" width="450" height="400">
                     </div>
                 </div>
 
@@ -171,7 +130,7 @@
             <div class="row no-gutters">
                 <div class="col-md-3">
                     <div class="position-relative">
-                        <img src="images/mau1.jpg" class="zoom-img g-0" style="width: 300px; height: 400px;">
+                        <img src="assets/images/mau1.jpg" class="zoom-img g-0" style="width: 300px; height: 400px;">
                         <div class="position-absolute text-white" style="top: 69%; left: 5%;">
                             <p>Khuyến mại tới 50%</p>
                             <h3>Phụ kiện thời trang</h3>
@@ -182,7 +141,7 @@
 
                 <div class="col-md-3">
                     <div class="position-relative">
-                        <img src="images/mau2.jpg" class="zoom-img g-0" style="width: 300px; height: 400px;">
+                        <img src="assets/images/mau2.jpg" class="zoom-img g-0" style="width: 300px; height: 400px;">
                         <div class="position-absolute text-white" style="top: 69%; left: 5%;">
                             <p>Khuyến mại tới 50%</p>
                             <h3>Phụ kiện thời trang</h3>
@@ -193,7 +152,7 @@
 
                 <div class="col-md-3">
                     <div class="position-relative">
-                        <img src="images/mau3.jpg" class="zoom-img g-0" style="width: 300px; height: 400px;">
+                        <img src="assets/images/mau3.jpg" class="zoom-img g-0" style="width: 300px; height: 400px;">
                         <div class="position-absolute text-white" style="top: 69%; left: 5%;">
                             <p>Khuyến mại tới 50%</p>
                             <h3>Phụ kiện thời trang</h3>
@@ -204,7 +163,7 @@
 
                 <div class="col-md-3">
                     <div class="position-relative">
-                        <img src="images/mau4.jpg" class="zoom-img g-0" style="width: 300px; height: 400px;">
+                        <img src="assets/images/mau4.jpg" class="zoom-img g-0" style="width: 300px; height: 400px;">
                         <div class="position-absolute text-white" style="top: 69%; left: 5%;">
                             <p>Khuyến mại tới 50%</p>
                             <h3>Phụ kiện thời trang</h3>

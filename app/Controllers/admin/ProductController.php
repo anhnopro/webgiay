@@ -42,10 +42,10 @@ class ProductController extends BaseController{
             ];
 
             if (isset($_FILES['path']) && $_FILES['path']['error'] == 0) {
-                $target_dir = "images/";
+                $target_dir = "assets/images/";
                 $target_file = $target_dir . basename($_FILES["path"]["name"]);
                 if (move_uploaded_file($_FILES["path"]["tmp_name"], $target_file)) {
-                    $data['path'] = $target_file;
+                    $data['image'] = $target_file;
                 }
             }
 
@@ -70,6 +70,10 @@ class ProductController extends BaseController{
             header("Location: " . ROOT_PATH . "list/product");
             exit();
         }
+    }
+    public function showUpdate($id){
+        $products = ProductModel::listprdDetail($id);
+        $this->view("product/edit",['products'=>$products]);
     }
 }
 

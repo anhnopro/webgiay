@@ -2,14 +2,16 @@
 
 use App\Controllers\Admin\AttributeController as AdminAttributeController ;
 use App\Controllers\Admin\ProductController as AdminProductController;
-use App\Controllers\Client\ProductController;
+use App\Controllers\Client\ProductController as ClientProductController;
 use App\Router;
   require_once __DIR__ ."/vendor/autoload.php";
 
   require_once __DIR__ ."/config.php";
   require_once __DIR__ ."/env.php";
   $router=new Router;
-  Router::get("/home",[ProductController::class,"home"]);
+  Router::get("/home",[ClientProductController::class,"home"]);
+
+
 
 
 
@@ -21,7 +23,8 @@ use App\Router;
   Router::get("/add/product",[AdminProductController::class,"showadd"]);
   Router::post("/add/product",[AdminProductController::class,"add"]);
   Router::get("/detail/product/{id}", [AdminProductController::class, "listDetail"]);
-
+  Router::get("/update/product/{id}", [AdminProductController::class, "showUpdate"]);
+  
 
   //attribute
   Router::get("/add/attribute",[AdminAttributeController::class,'showadd']);

@@ -6,36 +6,37 @@
                 <p>Danh mục</p>
                 <select name="" id="" class="form-control" disabled>
                     <option value="1">-Danh mục-</option>
-                    <option value="2" disabled selected><?= $product_detail['category_name'] ?></option>
+                    <option value="2" disabled selected><?= $products['category_name'] ?></option>
                 </select>
             </div>
             <div class="mb-2 mt-2">
                 <label for="name" class="form-label">Tên sản phẩm</label>
-                <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" value="<?= $product_detail['product_name'] ?>">
-            </div>
-            <div class="mb-2 mt-2">
-                <label for="describe" class="form-label">Mô tả</label>
-                <textarea class="col-12 rol2 border rounded-2" disabled><?= $product_detail['describe'] ?></textarea>
+                <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" value="<?= $products['product_name'] ?>">
             </div>
             <div class="mb-2 mt-2">
                 <label for="price" class="form-label">Giá</label>
-                <input type="text" class="form-control" id="price" placeholder="Enter price" name="price" disabled value="<?= $product_detail['price'] ?>">
+                <input type="text" class="form-control" id="price" placeholder="Enter price" name="price"  value="<?= $products['price'] ?>">
             </div>
             <div class="mb-2 mt-2">
                 <label for="sale_price" class="form-label">Giá giảm</label>
-                <input type="text" class="form-control" id="sale_price" placeholder="Enter sale price" name="sale_price" disabled value="<?= $product_detail['sale_price'] ?>">
+                <input type="text" class="form-control" id="sale_price" placeholder="Enter sale price" name="sale_price"  value="<?= $products['sale_price'] ?>">
             </div>
             <div class="mb-2 mt-2">
-                <label for="image" class="form-label">Ảnh</label>
-                <input type="text" class="form-control" id="image" placeholder="Enter ảnh" name="image" disabled value="<?= $product_detail['image'] ?>">
+                <label for="image" class="form-label">Ảnh</label><br>
+                <img src="<?= ROOT_PATH ?>/<?= $products['image'] ?>">
+                <input type="file" class="form-control" id="image" placeholder="Enter ảnh" name="image"  value="<?= $products['image'] ?>">
             </div>
             <div class="mb-2 mt-2">
                 <label for="soluong" class="form-label">Số lượng</label>
-                <input type="number" class="form-control" id="soluong" placeholder="Enter số lượng" name="soluong" disabled value="10">
+                <input type="number" class="form-control" id="soluong" placeholder="Enter số lượng" name="soluong"  value="10">
+            </div>
+            <div class="mb-2 mt-2">
+                <label for="describe" class="form-label">Mô tả</label>
+                <textarea class="col-12 rol2 border rounded-2" disabled><?= $products['describe'] ?></textarea>
             </div>
             <div class="mb-2 mt-2">
                 <p>Trạng thái</p>
-                <select name="" id="" class="form-control" disabled>
+                <select name="" id="" class="form-control" >
                     <option value="1">-Trạng thái-</option>
                     <option value="2" selected>Còn hàng</option>
                     <option value="2">Hết hàng</option>

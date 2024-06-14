@@ -23,12 +23,12 @@ class ProductModel extends BaseModel
     JOIN category c ON p.id_category = c.id_category
     JOIN product_attr pa ON p.id_product = pa.id_product 
     JOIN attribute a ON pa.id_attribute = a.id_attribute
-    WHERE p.id_product = $id
+    WHERE p.id_product = :id
     GROUP BY p.id_product, p.name, p.image, p.price, p.sale_price, p.describe, c.name;
 
         ";
         $stmt = $model->conn->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_CLASS);
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }
