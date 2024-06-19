@@ -1,4 +1,4 @@
-<div style="width: calc(100% - 220px);">
+<div style="width: calc(100% - 220px);" class="container my-4">
     <div class="container p-4">
         <h5 class="p-4">Form thêm sản phẩm</h5>
         <form action="">
@@ -26,9 +26,36 @@
                 <input type="text" class="form-control" id="sale_price" placeholder="Enter sale price" name="sale_price" disabled value="<?= $product_detail['sale_price'] ?>">
             </div>
             <div class="mb-2 mt-2">
-                <label for="image" class="form-label">Ảnh</label>
+                <label for="image" class="form-label">Ảnh</label><br>
+                <img src="<?= ROOT_PATH ?>/<?= $product_detail['image'] ?>">
                 <input type="text" class="form-control" id="image" placeholder="Enter ảnh" name="image" disabled value="<?= $product_detail['image'] ?>">
             </div>
+
+            <div class="mb-2 mt-2">
+                <label for="size" class="form-label">Kích cỡ</label>
+                <div id="size-inputs" class="row g-2">
+                    <?php
+                    $sizes = explode(',', $product_detail['sizes']);
+                    foreach ($sizes as $index => $size) : ?>
+                        <div class="col-auto">
+                            <input type="number" class="form-control" id="size_<?= $index ?>" name="sizes[]" value="<?= $size ?>" disabled>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            </div>
+
+
+            <!-- Hiển thị thuộc tính color -->
+
+            <div class="mb-2 mt-2">
+                <label for="color" class="form-label">Màu sắc</label>
+                <?php
+                $colors = explode(',', $product_detail['colors']);
+                foreach ($colors as $color) : ?>
+                    <input type="color" class="form-control" placeholder="Enter color" name="color[]" disabled value="<?= $color ?>"> <br>
+                <?php endforeach; ?>
+            </div>
+
             <div class="mb-2 mt-2">
                 <label for="soluong" class="form-label">Số lượng</label>
                 <input type="number" class="form-control" id="soluong" placeholder="Enter số lượng" name="soluong" disabled value="10">

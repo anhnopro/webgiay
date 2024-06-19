@@ -1,4 +1,4 @@
-<div class="row mt-3 ms-2">
+<div class="row mt-3 ms-2 container mt-4">
     <div class="col-md-9">
         <table class=" table border">
             <thead>

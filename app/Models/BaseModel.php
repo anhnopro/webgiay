@@ -60,4 +60,37 @@ class BaseModel
     $stmt->execute($data);
     return $model->conn->lastInsertId();
   }
+  public static function find($id)
+  {
+    $model = new static;
+    $model->sqlBuilder = "SELECT *from $model->tableName where $model->primary:=$model->primary";
+    $data = ["$model->primary" => $id];
+    $stmt = $model->conn->prepare($model->sqlBuilder);
+    $stmt->execute($data);
+    $result = $stmt->fetchAll(PDO::FETCH_CLASS);
+    return $result[0];
+  }
+  public static function update($id, $data)
+  {
+      $model = new static;
+      $model->sqlBuilder = "UPDATE $model->tableName SET ";
+      foreach ($data as $column => $value) {
+          $model->sqlBuilder .= "`{$column}`=:$column, ";
+      }
+      //Xóa dấu ", " ở cuối chuỗi
+      $model->sqlBuilder = rtrim($model->sqlBuilder, ", ");
+      //Thêm điều kiện cho câu lệnh SQL
+      $model->sqlBuilder .= " WHERE `$model->primary`=:$model->primary";
+
+      $stmt = $model->conn->prepare($model->sqlBuilder);
+      //Thêm $id vào $data
+      $data["$model->primary"] = $id;
+      return $stmt->execute($data);
+  }
+  public static function delete($id){
+    $model=new static;
+    $model->sqlBuilder = "DELETE FROM $model->tableName WHERE `$model->primary`=:$model->primary";
+    $stmt = $model->conn->prepare($model->sqlBuilder);
+    return $stmt->execute(["$model->primary" => $id]);
+  }
 }

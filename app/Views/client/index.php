@@ -81,11 +81,11 @@
             <h1 class="text-center">Sản phẩm mới</h1>
             <div class="row mt-4">
                 <div class="col-md-6">
-                    <img src="assets/images/sp15.jpg" width="550" height="300" class="zoom-img img-fluid">
+                    <img src="assets/images/sp15.jpg" width="650" height="400" class="zoom-img img-fluid">
                 </div>
                 <?php foreach ($products as $product) : ?>
                     <div class="col-md-2 mb-3">
-                        <img src="<?= ROOT_PATH ?>/<?= $product['image'] ?>" width="200" height="200" class="zoom-img img-fluid">
+                        <img src="<?= ROOT_PATH ?>/<?= $product['image'] ?>" width="100%" height="100%" class="zoom-img img-fluid">
                         <h4><?= $product['name'] ?></h4>
                         <span>Giá: <?= $product['price'] ?></span>
                     </div>
