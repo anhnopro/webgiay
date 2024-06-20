@@ -8,6 +8,24 @@ class ProductModel extends BaseModel
 {
     protected $primary = 'id_product';
     protected $tableName = "product";
+    public static function listPrd()
+    {
+        $model = new static;
+
+        $sql = "SELECT p.id_product as id, 
+        p.name AS product_name,
+         p.price, 
+         p.sale_price, 
+        p.image,
+         p.describe, 
+         c.name AS category_name,
+          c.id_category 
+        from product p join category c on p.id_category =c.id_category 
+        ORDER BY p.id_product";
+        $stmt = $model->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     public static function listprdDetail($id)
     {
@@ -15,6 +33,7 @@ class ProductModel extends BaseModel
         $sql = "SELECT 
     p.id_product as id,
     p.name AS product_name,
+  
     p.image,
     p.price,
     p.sale_price,
@@ -35,6 +54,7 @@ class ProductModel extends BaseModel
         $stmt->execute(['id' => $id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+   
     public static function updateProduct($id, $data)
     {
         $model = new static;
@@ -88,4 +108,5 @@ class ProductModel extends BaseModel
             }
         }
     }
+    
 }

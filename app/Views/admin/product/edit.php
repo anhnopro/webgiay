@@ -4,10 +4,13 @@
         <form action="" method="post" enctype="multipart/form-data">
             <div>
                 <p>Danh mục</p>
+             
                 <select name="id_category" id="" class="form-control">
-                    <option value="1">-Danh mục-</option>
-                    <option value="2" selected><?= $products['category_name'] ?></option>
+                <?php foreach($category as $cate) : ?>
+                    <option value="<?= $cate['id_category'] ?>" selected><?= $cate['name'] ?></option>
+                    <?php endforeach; ?>
                 </select>
+              
             </div>
             <input type="hidden" class="form-control" id="id" name="id" value="<?=  $products['id'] ?>">
 

@@ -21,6 +21,8 @@ use App\Router;
   //product
   Router::get("/list/product",[AdminProductController::class,'list']);
   Router::get("/add/product",[AdminProductController::class,"showadd"]);
+  Router::get("/add/product/attr/{id}",[AdminProductController::class,"showaddAttr"]);
+  Router::post("/add/product/attr",[AdminProductController::class,"addProductAttribute"]);
   Router::post("/add/product",[AdminProductController::class,"add"]);
   Router::get("/detail/product/{id}", [AdminProductController::class, "listDetail"]);
   Router::get("/update/product/{id}", [AdminProductController::class, "showUpdate"]);

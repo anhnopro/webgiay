@@ -16,9 +16,9 @@
             <tbody>
                 <?php foreach ($products as $product) : ?>
                     <tr>
-                        <td><?= $product['id_product'] ?></td>
-                        <td><?= $product['id_category'] ?></td>
-                        <td><?= $product['name']  ?></td>
+                        <td><?= $product['id'] ?></td>
+                        <td><?= $product['category_name'] ?></td>
+                        <td><?= $product['product_name']  ?></td>
                         <td>
                             <div style="height: 60px;">
                                 <img src="<?= ROOT_PATH  ?>/<?= $product['image']  ?>" class="w-100 h-100">
@@ -38,9 +38,9 @@
                                     <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#myModal">
                                         Xóa
                                     </a>
-                                    <a class="dropdown-item" href="<?= ROOT_PATH ?>add/product">Thêm</a>
-                                    <a class="dropdown-item" href="<?= ROOT_PATH ?>update/product/<?= $product['id_product'] ?>">Sửa</a>
-                                    <a class="dropdown-item" href="<?= ROOT_PATH ?>detail/product/<?= $product['id_product'] ?>">Xem Chi Tiết</a>
+                                    <a class="dropdown-item" href="<?= ROOT_PATH ?>add/product/attr/<?= $product['id'] ?>">Thêm thuộc tính</a>
+                                    <a class="dropdown-item" href="<?= ROOT_PATH ?>update/product/<?= $product['id'] ?>">Sửa</a>
+                                    <a class="dropdown-item" href="<?= ROOT_PATH ?>detail/product/<?= $product['id'] ?>">Xem Chi Tiết</a>
 
 
 

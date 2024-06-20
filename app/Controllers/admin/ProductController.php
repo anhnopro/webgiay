@@ -11,7 +11,7 @@ class ProductController extends BaseController
 {
     public function list()
     {
-        $products = ProductModel::all();
+        $products = ProductModel::listPrd();
         $this->view("product/listsp", ['products' => $products]);
     }
 
@@ -23,15 +23,54 @@ class ProductController extends BaseController
         $this->view("product/addprd", ["category" => $category, "size" => $size, 'color' => $color]);
     }
     public function listDetail($id)
-    {
+    
+    { 
         $product_detail = ProductModel::listprdDetail($id);
         $this->view("product/detailprd", ["product_detail" => $product_detail]);
     }
 
 
+    public function showaddAttr($id){
+        $products = ProductModel::listprdDetail($id);
+        $size = AttributeModel::where("name", '=', "size")->get();
+        $color = AttributeModel::where("name", '=', "color")->get();
+        $this->view("product/addprdAttr",["products" => $products ,"size" => $size, 'color' => $color]);
+    }
 
+    public function addProductAttribute() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $id_product = $_POST['id_product'];
+            $sizes = isset($_POST['sizes']) ? $_POST['sizes'] : [];
+            $colors = isset($_POST['colors']) ? $_POST['colors'] : [];
 
+            // Thêm các thuộc tính mới
+            foreach ($sizes as $size) {
+                if (!$this->attributeExists($id_product, $size)) {
+                    ProductAttrModel::add([
+                        'id_product' => $id_product,
+                        'id_attribute' => $size
+                    ]);
+                }
+            }
 
+            foreach ($colors as $color) {
+                if (!$this->attributeExists($id_product, $color)) {
+                    ProductAttrModel::add([
+                        'id_product' => $id_product,
+                        'id_attribute' => $color
+                    ]);
+                }
+            }
+
+            // Chuyển hướng sau khi thêm thành công
+            header("Location: " . ROOT_PATH . "add/product/attr/$id_product");
+        }
+    }
+
+    private function attributeExists($id_product, $id_attribute) {
+        return ProductAttrModel::exists($id_product, $id_attribute);
+    }
+    
     public function add()
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -79,9 +118,9 @@ class ProductController extends BaseController
         }
     }
     public function showUpdate($id)
-    {
+    {    $category=CategoryModel::all();
         $products = ProductModel::listprdDetail($id);
-        $this->view("product/edit", ['products' => $products]);
+        $this->view("product/edit", ['products' => $products,"category"=>$category]);
     }
     public function update($id)
     {
