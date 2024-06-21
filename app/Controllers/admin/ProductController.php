@@ -37,13 +37,31 @@ class ProductController extends BaseController
         $this->view("product/addprdAttr",["products" => $products ,"size" => $size, 'color' => $color]);
     }
 
-    public function addProductAttribute() {
+    public function updateProductAttribute() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id_product = $_POST['id_product'];
             $sizes = isset($_POST['sizes']) ? $_POST['sizes'] : [];
             $colors = isset($_POST['colors']) ? $_POST['colors'] : [];
-
-            // Thêm các thuộc tính mới
+            $original_sizes = isset($_POST['original_sizes']) ? $_POST['original_sizes'] : [];
+            $original_colors = isset($_POST['original_colors']) ? $_POST['original_colors'] : [];
+    
+            // Calculate which sizes to delete
+            $delete_sizes = array_diff($original_sizes, $sizes);
+    
+            // Calculate which colors to delete
+            $delete_colors = array_diff($original_colors, $colors);
+    
+            // Xóa các thuộc tính size được chọn
+            foreach ($delete_sizes as $size) {
+                ProductAttrModel::deleteByProductAndAttribute($id_product, $size);
+            }
+    
+            // Xóa các thuộc tính color được chọn
+            foreach ($delete_colors as $color) {
+                ProductAttrModel::deleteByProductAndAttribute($id_product, $color);
+            }
+    
+            // Thêm các thuộc tính size mới
             foreach ($sizes as $size) {
                 if (!$this->attributeExists($id_product, $size)) {
                     ProductAttrModel::add([
@@ -52,7 +70,8 @@ class ProductController extends BaseController
                     ]);
                 }
             }
-
+    
+            // Thêm các thuộc tính color mới
             foreach ($colors as $color) {
                 if (!$this->attributeExists($id_product, $color)) {
                     ProductAttrModel::add([
@@ -61,15 +80,16 @@ class ProductController extends BaseController
                     ]);
                 }
             }
-
-            // Chuyển hướng sau khi thêm thành công
+    
+            // Chuyển hướng sau khi cập nhật thành công
             header("Location: " . ROOT_PATH . "add/product/attr/$id_product");
         }
     }
-
+    
     private function attributeExists($id_product, $id_attribute) {
         return ProductAttrModel::exists($id_product, $id_attribute);
     }
+    
     
     public function add()
     {
