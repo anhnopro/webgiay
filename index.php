@@ -9,15 +9,13 @@ use App\Router;
   require_once __DIR__ ."/config.php";
   require_once __DIR__ ."/env.php";
   $router=new Router;
-  Router::get("/home",[ClientProductController::class,"home"]);
+ 
 
 
 
 
 
-  ////admin
-  
-
+  /** Admin */
   //product
   Router::get("/list/product",[AdminProductController::class,'list']);
   Router::get("/add/product",[AdminProductController::class,"showadd"]);
@@ -30,6 +28,12 @@ use App\Router;
   //attribute
   Router::get("/add/attribute",[AdminAttributeController::class,'showadd']);
   Router::post("/add/attribute",[AdminAttributeController::class,'add']);
+ 
 
+
+
+  /** Client */
+  Router::get("/home",[ClientProductController::class,"home"]);
+  Router::get("/product/detail/{id}",[ClientProductController::class,"detailPrd"]);
   $router->resolve();
 ?>

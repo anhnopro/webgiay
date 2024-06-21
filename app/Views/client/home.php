@@ -1,94 +1,21 @@
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <title>Document</title>
-</head>
-
-<body>
-
-
-    <header>
-        <div class="container-fluid bgtop1 ">
-            <h4 i class='bx bxs-phone small'></i> ĐIỆN THOẠI:</h4>
-            <span class="small text-warning">09771*4545</span>
-        </div>
-        <div class="container">
-            <div class="d-flex justify-content-between mt-4">
-                <div></div>
-                <h1 class="text-center  maulogo ">Mega Shoes</h1>
-                <div class="mt-2">
-                    <i class='bx bx-search'></i>
-
-                    <a href="dangnhap.html"> <i class='bx bx-user-circle'></i></a>
-                    <i class='bx bx-shopping-bag'></i>
-                </div>
-
-            </div>
-
-            <div>
-
-                <div class="list-ds  mt-3">
-                    <ul class="list-inline  d-flex justify-content-center">
-                        <li><a href="index.html" class="m-3">Trang chủ</a></li>
-                        <li><a href="" class="m-3">Giới thiệu</a></li>
-                        <li><a href="sanpham.html" class="m-3">Danh mục sản phẩm</a></li>
-                        <li><a href="tintuc.html" class="m-3">Tin tức </a></li>
-                        <li><a href="lienhe.html" class="m-3">Liên hệ</a></li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-        <section>
-            <div class="container-fluid bgtop1 text-right">
-                <img src="assets/images/banner3.jpg" style="width: 100%;height: auto;">
-                <div class="row">
-                    <div class="col-md-3 text-center ">
-                        <img src="assets/images/support_1_ic.png" alt="" width="70" height="40">
-                        <h3>Giao Hàng Miễn Phí</h3>
-                        <span>Cho đơn hàng trên 599k</span>
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <img src="assets/images/support_1_ic.png" alt="" width="70" height="40">
-                        <h3>Miễn Phí Đổi Trả</h3>
-                        <span>Trong vòng 7 ngày</span>
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <img src="assets/images/support_3_ic.png" alt="" width="70" height="40">
-                        <h3>Đặt Hàng Trực Tuyến</h3>
-                        <span>Hotline : 1900.XXX.XXX</span>
-                    </div>
-                    <div class="col-md-3 text-center">
-                        <img src="assets/images/support_4_ic.png" alt="" width="70" height="40">
-                        <h3>Hỗ Trợ 24/7</h3>
-                        <span>Hỗ Trợ online /offline 24/7</span>
-                    </div>
-
-                </div>
-            </div>
-
-        </section>
-
-    </header>
     <section>
         <div class="container-fluid mt-4">
             <h1 class="text-center">Sản phẩm mới</h1>
             <div class="row mt-4">
-                <div class="col-md-6">
+                <div class="col-md-6 mb-4">
                     <img src="assets/images/sp15.jpg" width="650" height="400" class="zoom-img img-fluid">
                 </div>
                 <?php foreach ($products as $product) : ?>
-                    <div class="col-md-2 mb-3">
-                        <img src="<?= ROOT_PATH ?>/<?= $product['image'] ?>" width="100%" height="100%" class="zoom-img img-fluid">
+                   
+                    <div class="col-md-2 mb-5">
+                    <a href="<?= ROOT_PATH ?>product/detail/<?= $product['id_product'] ?>" class="nav-link">
+                        <img src="<?= ROOT_PATH ?>/<?= $product['image'] ?>" width="100%" height="100%" class="zoom-img img-fluid" >
                         <h4><?= $product['name'] ?></h4>
-                        <span>Giá: <?= $product['price'] ?></span>
+                        <span>Giá: <?= number_format($product['price'], 0, ',', '.') . ' VND' ?></span>
+                        </a>
                     </div>
+                 
                 <?php endforeach; ?>
 
                
@@ -294,77 +221,4 @@
 
 
     </section>
-    <footer>
-        <div class="container-fluid">
-            <hr>
-            <div class="d-flex justify-content-between  align-items-center mt form-icon">
-                <div>
-                    <div>
-                        <h5><i class='bx bx-envelope'></i> <span>Đăng kí nhận tin</span> </h5>
-                    </div>
-                </div>
-                <div>
-                    <form class="row g-2 align-items-center">
-                        <div class="col-auto">
-                            <input type="text" name="" placeholder="Nhập email của bạn" style="width: 400px; height: 30px;" class="rounded-0 border">
-                        </div>
-                        <div class="col-auto">
-                            <button class="btn btn-primary btn-sm rounded-0">Đăng kí</button>
-                        </div>
-                    </form>
-                </div>
-                <div>
-                    <h5><i class='bx bxs-phone'></i><span>Đăng kí/Mua hàng :18000345</span> </h5>
-                </div>
-            </div>
-            <hr>
-            <div>
-                <div class="row size-footer">
-                    <div class="col-md-4">
-                        <h4>Giới thiệu</h4>
-                        <p>Mega Shoes trang mua sắm trực tuyến của thương hiệu thời trang Lama,
-                            thời trang nam, nữ, phụ kiện, giúp bạn tiếp cận xu hướng thời trang mới nhất.</p>
-                        <img src="images/logobct.png">
-                    </div>
-                    <div class="col-md-2">
-                        <h4 class="text-left">Liên kết</h4>
-                        <div>
-                            <ul>
-                                <li><a href="">Tìm kiến</a></li>
-                                <li><a href="">Giới thiệu</a></li>
-                                <li><a href="">Chính sách đổi trả</a></li>
-                                <li><a href="">Chính sách bảo mật</a></li>
-                                <li><a href="">Điều khoản dịch vụ</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <h4>Thông tin liên hệ</h4>
-                        <p>Tầng X, tòa nhà Flemington, số XXX, đường Lê Đại Hành, phường XX, quận XX, Tp. Hồ Chí Minh.</p>
-                        <p>Hotline:1900.XXX.XXX</p>
-                        <p>Email: hotrotructuyen@gmail.com</p>
-
-                    </div>
-                    <div class="col-md-3">
-                        <h4>Fanpage</h4>
-                        <iframe width="220" height="100" src="https://www.youtube.com/embed/-iqWkbbsvGk?si=aezgIFYTu44XNxnm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                    </div>
-                </div>
-                <hr>
-                <p class="text-center" style="font-size: 10px;">Copyright © 2024 Mega Shoes. Powered by Haravan
-
-                </p>
-            </div>
-
-        </div>
-
-    </footer>
-
-
-
-    <script src="js/bootstrap.min.js">
-
-    </script>
-</body>
-
-</html>
+  

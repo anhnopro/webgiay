@@ -6,7 +6,11 @@ use App\Models\ProductModel;
 class ProductController extends BaseController {
     public function home(){
         $products=ProductModel::all();
-        $this->view("index",['products'=>$products]);
+        $this->view("home",['products'=>$products]);
+    }
+    public function detailPrd($id){
+        $products=ProductModel::listprdDetail($id);
+        $this->view("detailPrd",['products'=>$products]);
     }
 }
 ?>
