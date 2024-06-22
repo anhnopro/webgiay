@@ -2,8 +2,11 @@
 
 use App\Controllers\Admin\AttributeController as AdminAttributeController ;
 use App\Controllers\Admin\ProductController as AdminProductController;
+use App\Controllers\Admin\CategoryController;
 use App\Controllers\Client\ProductController as ClientProductController;
 use App\Router;
+
+
   require_once __DIR__ ."/vendor/autoload.php";
 
   require_once __DIR__ ."/config.php";
@@ -28,12 +31,16 @@ use App\Router;
   //attribute
   Router::get("/add/attribute",[AdminAttributeController::class,'showadd']);
   Router::post("/add/attribute",[AdminAttributeController::class,'add']);
- 
-
-
+ //category
+ Router::get("/category/list",[CategoryController::class,'all']);
+ Router::get("/category/add",[CategoryController::class,'showAddCategory']);
+ Router::post("/category/add",[CategoryController::class,'addCategory']);
+ Router::get("/category/update/{id}",[CategoryController::class,'showUpdateCategory']);
+  
 
   /** Client */
   Router::get("/home",[ClientProductController::class,"home"]);
   Router::get("/product/detail/{id}",[ClientProductController::class,"detailPrd"]);
+  
   $router->resolve();
 ?>

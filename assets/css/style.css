@@ -141,3 +141,15 @@ p img:hover{
 }
 
 
+.edit-ds h4{
+    font-size: 12px;
+ }
+ .edit-ds p {
+    font-size: 10px;
+ }
+ .edit-ds p:hover{
+    color: aqua;
+ }
+ .edit-ds input:hover{
+    border: 0.4 solid black;
+ }

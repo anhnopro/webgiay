@@ -35,7 +35,7 @@ class Router
         foreach (static::$routes[$method] as $route => $handler) {
             $routePattern = preg_replace('/\{[a-zA-Z0-9_]+\}/', '([^/]+)', $route);
             if (preg_match('#^' . $routePattern . '$#', $path, $matches)) {
-                array_shift($matches); // Remove the full match
+                array_shift($matches);
                 $callback = $handler;
                 break;
             }

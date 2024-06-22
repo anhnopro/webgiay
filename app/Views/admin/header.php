@@ -69,7 +69,8 @@
                                 Danh mục sản phẩm
                             </button>
                             <div class="dropdown-menu" >
-                                <a class="dropdown-item" href="#">Tạo danh mục</a>
+                                <a class="dropdown-item" href="<?= ROOT_PATH ?>category/list">Danh sách</a>
+                                <a class="dropdown-item" href="<?= ROOT_PATH ?>category/add">Tạo danh mục</a>
                                 <a class="dropdown-item" href="#">Sửa tên danh mục</a>
                                 <a class="dropdown-item" href="#">Thùng rác</a>
                             </div>

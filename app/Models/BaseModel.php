@@ -60,15 +60,17 @@ class BaseModel
     $stmt->execute($data);
     return $model->conn->lastInsertId();
   }
-  public static function find($id)
-  {
-    $model = new static;
-    $model->sqlBuilder = "SELECT *from $model->tableName where $model->primary:=$model->primary";
-    $data = ["$model->primary" => $id];
-    $stmt = $model->conn->prepare($model->sqlBuilder);
+  public static function find($id){
+    $model=new static; 
+    $model->sqlBuilder="SELECT *from $model->tableName where $model->primary=:$model->primary";
+    $stmt=$model->conn->prepare($model->sqlBuilder);
+    $data=["$model->primary"=>$id];
     $stmt->execute($data);
-    $result = $stmt->fetchAll(PDO::FETCH_CLASS);
-    return $result[0];
+    $result= $stmt->fetchAll(PDO::FETCH_CLASS);
+    if($result){
+      return $result[0];
+    }
+   
   }
   public static function update($id, $data)
   {
