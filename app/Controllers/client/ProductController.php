@@ -10,7 +10,7 @@ class ProductController extends BaseController {
     }
     public function detailPrd($id){
         $products=ProductModel::listprdDetail($id);
-        $this->view("detailPrd",['products'=>$products]);
+        $this->view("product/detailPrd",['products'=>$products]);
     }
 }
 ?>

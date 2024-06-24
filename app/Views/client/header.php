@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
-   
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?=ROOT_PATH ?>assets/css/style.css">
+    <link rel="stylesheet" href="<?=ROOT_PATH ?>assets/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <title>Document</title>
@@ -205,25 +204,25 @@ p img:hover{
         </div>
         <section>
             <div class="container-fluid bgtop1 text-right">
-                <img src="assets/images/banner3.jpg" style="width: 100%;height: auto;">
+                <img src="<?=ROOT_PATH ?>assets/images/banner3.jpg" style="width: 100%;height: auto;">
                 <div class="row">
                     <div class="col-md-3 text-center ">
-                        <img src="assets/images/support_1_ic.png" alt="" width="70" height="40">
+                        <img src="<?=ROOT_PATH ?>assets/images/support_1_ic.png" alt="" width="70" height="40">
                         <h3>Giao Hàng Miễn Phí</h3>
                         <span>Cho đơn hàng trên 599k</span>
                     </div>
                     <div class="col-md-3 text-center">
-                        <img src="assets/images/support_1_ic.png" alt="" width="70" height="40">
+                        <img src="<?=ROOT_PATH ?>assets/images/support_1_ic.png" alt="" width="70" height="40">
                         <h3>Miễn Phí Đổi Trả</h3>
                         <span>Trong vòng 7 ngày</span>
                     </div>
                     <div class="col-md-3 text-center">
-                        <img src="assets/images/support_3_ic.png" alt="" width="70" height="40">
+                        <img src="<?=ROOT_PATH ?>assets/images/support_3_ic.png" alt="" width="70" height="40">
                         <h3>Đặt Hàng Trực Tuyến</h3>
                         <span>Hotline : 1900.XXX.XXX</span>
                     </div>
                     <div class="col-md-3 text-center">
-                        <img src="assets/images/support_4_ic.png" alt="" width="70" height="40">
+                        <img src="<?=ROOT_PATH ?>ssets/images/support_4_ic.png" alt="" width="70" height="40">
                         <h3>Hỗ Trợ 24/7</h3>
                         <span>Hỗ Trợ online /offline 24/7</span>
                     </div>
