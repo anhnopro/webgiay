@@ -81,6 +81,20 @@
                     <a class="nav-link" href="#">
                         <div class="dropdown">
                             <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" >
+                                Thuộc tính sản phẩm
+                            </button>
+                            <div class="dropdown-menu" >
+                                <a class="dropdown-item" href="<?= ROOT_PATH ?>attribute/list">Danh sách</a>
+                                <a class="dropdown-item" href="<?= ROOT_PATH ?>add/attribute">Tạo thuộc tính</a>
+                                <a class="dropdown-item" href="#">Thùng rác</a>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <div class="dropdown">
+                            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" >
                                 Quản lí đơn hàng
                             </button>
                             <div class="dropdown-menu" >

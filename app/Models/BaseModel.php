@@ -66,7 +66,7 @@ class BaseModel
     $stmt=$model->conn->prepare($model->sqlBuilder);
     $data=["$model->primary"=>$id];
     $stmt->execute($data);
-    $result= $stmt->fetchAll(PDO::FETCH_CLASS);
+    $result= $stmt->fetchAll(PDO::FETCH_ASSOC);
     if($result){
       return $result[0];
     }

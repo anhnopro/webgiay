@@ -1,10 +1,9 @@
-z
 <div class="container-fluid">
     <section>
         <div class="container mt-4">
             <div class="row">
                 <div class="col-md-6">
-                      <img src="images/sp1.jpg" width="465px" height="400" id="main-img">
+                      <img src="assets/images/sp1.jpg" width="465px" height="400" id="main-img">
                       <p>
                         <img src="images/sp2.jpg" width="90">
                         <img src="images/sp3.jpg" width="90">

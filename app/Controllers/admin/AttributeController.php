@@ -5,7 +5,13 @@ namespace App\Controllers\Admin;
 use App\Models\AttributeModel;
 
 class AttributeController extends BaseController
+ 
 {
+      public function listAttr(){
+            $attribute=AttributeModel::all();
+
+          $this->view("attribute/list",["attribute"=>$attribute])  ; 
+      } 
       public function showadd()
       {
             $this->view("attribute/add");

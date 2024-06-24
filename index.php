@@ -29,6 +29,7 @@ use App\Router;
   Router::get("/update/product/{id}", [AdminProductController::class, "showUpdate"]);
   Router::post("/update/product/{id}",[AdminProductController::class,"update"]);
   //attribute
+  Router::get("/attribute/list",[AdminAttributeController::class,"listAttr"]);
   Router::get("/add/attribute",[AdminAttributeController::class,'showadd']);
   Router::post("/add/attribute",[AdminAttributeController::class,'add']);
  //category
@@ -36,6 +37,7 @@ use App\Router;
  Router::get("/category/add",[CategoryController::class,'showAddCategory']);
  Router::post("/category/add",[CategoryController::class,'addCategory']);
  Router::get("/category/update/{id}",[CategoryController::class,'showUpdateCategory']);
+ Router::post("/category/update/{id}",[CategoryController::class,'updateCategory']);
   
 
   /** Client */

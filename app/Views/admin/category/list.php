@@ -21,7 +21,7 @@
                             
                             <td>
                                 <div style="height: 60px;">
-                                    <img src="<?= ROOT_PATH ?>assets/<?= $cate['image'] ?>" class="w-100 h-100">
+                                    <img src="<?= ROOT_PATH ?>/<?= $cate['image'] ?>" class="w-50 h-50">
                                 </div>
                             </td>
                             
