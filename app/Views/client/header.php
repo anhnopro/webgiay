@@ -183,7 +183,7 @@ p img:hover{
                     <i class='bx bx-search'><a href="<?= ROOT_PATH ?>/"></a></i>
 
                     <a href="dangnhap.html"> <i class='bx bx-user-circle'></i></a>
-                    <i class='bx bx-shopping-bag'></i>
+                    <a href="<?= ROOT_PATH ?>order/addCart" class="nav-link"><i class='bx bx-shopping-bag'></i></a>
                 </div>
 
             </div>
@@ -222,7 +222,7 @@ p img:hover{
                         <span>Hotline : 1900.XXX.XXX</span>
                     </div>
                     <div class="col-md-3 text-center">
-                        <img src="<?=ROOT_PATH ?>ssets/images/support_4_ic.png" alt="" width="70" height="40">
+                        <img src="<?=ROOT_PATH ?>assets/images/support_4_ic.png" alt="" width="70" height="40">
                         <h3>Hỗ Trợ 24/7</h3>
                         <span>Hỗ Trợ online /offline 24/7</span>
                     </div>

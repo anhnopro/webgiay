@@ -1,6 +1,10 @@
 <div class="row mt-3 ms-2 container mt-4">
-    <div class="col-md-9">
-        <table class=" table border">
+<div>
+            <div><a href="<?= ROOT_PATH ?>add/product" class="btn btn-success">Thêm sản phẩm</a></div>
+        </div>
+    <div class="col-md-9 mt-2">
+       
+        <table class=" table border ">
             <thead>
                 <tr>
                     <th>Mã sản phẩm</th>
@@ -24,8 +28,8 @@
                                 <img src="<?= ROOT_PATH  ?>/<?= $product['image']  ?>" class="w-100 h-100">
                             </div>
                         </td>
-                       <td><?=$product['price']  ?></td>
-                       <td><?=$product['sale_price'] ?></td>
+                        <td><?= $product['price']  ?></td>
+                        <td><?= $product['sale_price'] ?></td>
                         <td>
                             <span class="badge bg-danger">Hết hàng</span>
                         </td>
@@ -44,7 +48,7 @@
 
 
 
-                                   
+
                                 </div>
                             </div>
                         </td>
@@ -64,7 +68,7 @@
         </div>
     </div>
 
-    <div class="col-md-3">
+    <div class="col-md-3 mt-2">
         <div class="bg-white d-flex p-4 rounded-3 border">
             <div>
                 <h5>Tìm kiếm tại đây</h5>

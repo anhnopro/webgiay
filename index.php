@@ -3,6 +3,7 @@
 use App\Controllers\Admin\AttributeController as AdminAttributeController ;
 use App\Controllers\Admin\ProductController as AdminProductController;
 use App\Controllers\Admin\CategoryController;
+use App\Controllers\Client\OrderController;
 use App\Controllers\Client\ProductController as ClientProductController;
 use App\Router;
 
@@ -41,8 +42,12 @@ use App\Router;
   
 
   /** Client */
+  //product
   Router::get("/home",[ClientProductController::class,"home"]);
   Router::get("/product/detail/{id}",[ClientProductController::class,"detailPrd"]);
-  
+  //cart
+  Router::get("/order/addCart",[OrderController::class,"showCart"]);
+  Router::post("/order/addCart",[OrderController::class,"addCart"]);
+  Router::get("/order/deleteCart",[OrderController::class,"deleteCart"]);
   $router->resolve();
 ?>
