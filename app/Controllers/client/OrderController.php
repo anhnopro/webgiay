@@ -1,6 +1,8 @@
 <?php
 namespace App\Controllers\Client;
+
 class OrderController extends BaseController{
+  
   public function showCart(){
     session_start();
     $this->view("order/cart",[]);
@@ -10,7 +12,6 @@ class OrderController extends BaseController{
     if (!isset($_SESSION['cart'])) {
         $_SESSION['cart'] = [];
     }
-    
     $id_product = $_POST['id_product'];
     $qty = $_POST['qty'];
     $product_name = $_POST['product_name'];
@@ -19,7 +20,21 @@ class OrderController extends BaseController{
     $colors = $_POST['colors'];
     $sizes = $_POST['sizes'];
 
-    $product = [
+   
+    $flag=0;
+    if(count($_SESSION['cart'])>0){
+      foreach ($_SESSION['cart'] as $key => $value) {
+        if($key==$id_product){
+          $flag=1;
+          $_SESSION['cart'][$id_product]['qty'] += $qty;
+          break;
+        }
+      }
+     
+
+    }
+    if($flag==0){
+      $product = [
         'id_product' => $id_product,
         'qty' => $qty,
         'product_name' => $product_name,
@@ -28,9 +43,10 @@ class OrderController extends BaseController{
         'colors' => $colors,
         'sizes' => $sizes
     ];
-
     $_SESSION['cart'][$id_product] = $product;
-    $this->view("order/cart", ['product' => $product]);
+    
+    }
+  header("location:".ROOT_PATH."order/addCart");
 }
 public function deleteCart() {
   session_start();
@@ -39,6 +55,11 @@ public function deleteCart() {
   }
   header("Location: " . ROOT_PATH . "home");
   exit();
+}
+public function deleteProductCart($id){
+  session_start();
+  unset($_SESSION['cart'][$id]);
+   $this->view("order/cart",[]);
 }
 
 
