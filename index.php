@@ -49,6 +49,7 @@ use App\Router;
   Router::get("/order/addCart",[OrderController::class,"showCart"]);
   Router::post("/order/addCart",[OrderController::class,"addCart"]);
   Router::get("/order/deleteCart",[OrderController::class,"deleteCart"]);
-  Router::get("/order/deleteProductCart/{id}",[OrderController::class,"deleteProductCart"]);
+  Router::get("/order/qtycart",[OrderController::class,'updateCartQuantity']);
+  Router::get("/order/deleteProductCart/{id_product}/{color}/{size}",[OrderController::class,"deleteProductCart"]);
   $router->resolve();
 ?>

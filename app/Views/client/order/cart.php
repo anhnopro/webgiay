@@ -5,6 +5,8 @@ if (count($_SESSION['cart']) > 0) {
     foreach ($_SESSION['cart'] as $index => $item) {
         $total = (int)($item['qty']) * (int)($item['price']);
         $total_payment += $total;
+        $colors = is_array($item['colors']) ? implode(', ', $item['colors']) : $item['colors'];
+        $sizes = is_array($item['sizes']) ? implode(', ', $item['sizes']) : $item['sizes'];
         $html_cart .= '<div class="container mt-5">
             <div class="row d-flex justify-content-between">
                 <div class="col-md-6">
@@ -19,7 +21,7 @@ if (count($_SESSION['cart']) > 0) {
                                <div class="ms-3">
                                 <h5>' . $item['product_name'] . '</h5>
                                 <p>' . number_format($item['price'], 0, ',', '.') . ' VNĐ </p>
-                                <p>' . $item['colors'] . '/' . $item['sizes'] . '</p>
+                                <p>' . htmlspecialchars($colors) . ' / ' . htmlspecialchars($sizes) . '</p>
                                 <p>
                                     <div class="group-button">
                                         <button type="button" class="soluong border" onclick="thaydoisoluong(\'' . $index . '\', \'-\')" style="width: 30px;">-</button>
@@ -35,7 +37,7 @@ if (count($_SESSION['cart']) > 0) {
                 <div class="col-md-1">
                     <div class="d-flex flex-column align-items-start">
                         <div class="mb-3">
-                           <a href="' . ROOT_PATH . 'order/deleteProductCart/' . $item['id_product'] . '" class="nav-link">
+                           <a href="' . ROOT_PATH . 'order/deleteProductCart/' . $item['id_product'] . '/' . urlencode($item['colors']) . '/' . urlencode($item['sizes']) . '" class="nav-link">
                                <p class="display-6">X</p>
                            </a>
                         </div>
@@ -49,6 +51,7 @@ if (count($_SESSION['cart']) > 0) {
        </div>';
     }
 }
+
 ?>
 
 <section>

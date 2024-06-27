@@ -20,23 +20,26 @@
                     <hr>
                     <p>Màu sắc</p>
 
-                    <?php
-                    $colors = explode(',', $product['colors']);
-                    foreach ($colors as $color) : ?>
-                        <button class="border rounded-circle m-1" style='width: 20px; height: 20px;background-color:<?= $color; ?>'></button>
-                    <?php endforeach; ?>
+                    <div class="color-selection">
+                        <?php
+                        $colors = explode(',', $product['colors']);
+                        foreach ($colors as $color) : ?>
+                            <button type="button" class="color-option border rounded-circle m-1" style="width: 20px; height: 20px;background-color:<?= $color; ?>" data-color="<?= $color ?>"></button>
+                        <?php endforeach; ?>
+                    </div>
                     <hr>
                     <p>Size giày</p>
-                    <?php
-                    $sizes = explode(',', $product['sizes']);
-                    foreach ($sizes as $size) :
-                    ?>
-                        <button class="bg-primary border m-1"><?= $size ?></button>
-                    <?php endforeach; ?>
+                    <div class="size-selection">
+                        <?php
+                        $sizes = explode(',', $product['sizes']);
+                        foreach ($sizes as $size) :
+                        ?>
+                            <button type="button" class="size-option bg-primary border m-1" data-size="<?= $size ?>"><?= $size ?></button>
+                        <?php endforeach; ?>
+                    </div>
                     <hr>
 
-
-                    <form action="<?= ROOT_PATH ?>order/addCart" method="post">
+                    <form id="add-to-cart-form" action="<?= ROOT_PATH ?>order/addCart" method="post">
                         <input type="hidden" name="id_product" value="<?= $product['id'] ?>">
                         <div class="group-button">
                             <button type="button" class="soluong border" onclick="thaydoisoluong('-')" style="width: 30px;">-</button>
@@ -46,21 +49,10 @@
                         <input type="hidden" name="product_name" value="<?= $product['product_name'] ?>">
                         <input type="hidden" name="price" value="<?= $product['price'] ?>">
                         <input type="hidden" name="image" value="<?= $product['image'] ?>">
-                        <?php
-                        $colors = explode(',', $product['colors']);
-                        foreach ($colors as $color) : ?>
-                            <input type="hidden" name="colors" value="<?= $color ?>">
-                        <?php endforeach; ?>
-
-
-                        <?php
-                        $sizes = explode(',', $product['sizes']);
-                        foreach ($sizes as $size) :
-                        ?>
-                            <input type="hidden" name="sizes" value="<?= $size ?>">
-                        <?php endforeach; ?>
+                        <input type="hidden" id="selected-color" name="colors">
+                        <input type="hidden" id="selected-size" name="sizes">
                         <div class="d-grid">
-                            <button type="submit" class="btn btn-primary-button btn-block mt-4">Thêm vào giỏ hàng</button>
+                            <button type="submit" class="btn btn-primary-button btn-block mt-4" id="add-to-cart-btn">Thêm vào giỏ hàng</button>
                         </div>
                     </form>
 
@@ -80,9 +72,7 @@
                         </ul>
                     </div>
                 </div>
-
             </div>
-
         </div>
     </section>
     <div class="container mt-5">
@@ -182,7 +172,57 @@
             let imgPath = $(this).attr('src');
             $('#main_img').attr('src', imgPath);
         })
-    })
+    });
+    document.addEventListener('DOMContentLoaded', function() {
+        // Lựa chọn màu sắc
+        const colorOptions = document.querySelectorAll('.color-option');
+        colorOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                colorOptions.forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+                document.getElementById('selected-color').value = this.dataset.color;
+                checkFormValidity();
+            });
+        });
+
+        // Lựa chọn size
+        const sizeOptions = document.querySelectorAll('.size-option');
+        sizeOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                sizeOptions.forEach(opt => opt.classList.remove('selected'));
+                this.classList.add('selected');
+                document.getElementById('selected-size').value = this.dataset.size;
+                checkFormValidity();
+            });
+        });
+
+        // Kiểm tra điều kiện để kích hoạt nút Thêm vào giỏ hàng
+        function checkFormValidity() {
+            const selectedColor = document.getElementById('selected-color').value;
+            const selectedSize = document.getElementById('selected-size').value;
+            const addToCartBtn = document.getElementById('add-to-cart-btn');
+            if (selectedColor && selectedSize) {
+                addToCartBtn.disabled = false;
+            } else {
+                addToCartBtn.disabled = true;
+            }
+        }
+
+        // Xử lý số lượng sản phẩm
+        const quantityInput = document.getElementById('soluong');
+        const decreaseBtn = document.querySelector('button.soluong:nth-child(1)');
+        const increaseBtn = document.querySelector('button.soluong:nth-child(3)');
+
+        decreaseBtn.addEventListener('click', function() {
+            if (quantityInput.value > 1) {
+                quantityInput.value--;
+            }
+        });
+
+        increaseBtn.addEventListener('click', function() {
+            quantityInput.value++;
+        });
+    });
 </script>
 
 

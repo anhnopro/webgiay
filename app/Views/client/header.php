@@ -192,7 +192,7 @@ p img:hover{
 
                 <div class="list-ds  mt-3">
                     <ul class="list-inline  d-flex justify-content-center">
-                        <li><a href="index.html" class="m-3">Trang chủ</a></li>
+                        <li><a href="<?= ROOT_PATH ?>home" class="m-3">Trang chủ</a></li>
                         <li><a href="" class="m-3">Giới thiệu</a></li>
                         <li><a href="sanpham.html" class="m-3">Danh mục sản phẩm</a></li>
                         <li><a href="tintuc.html" class="m-3">Tin tức </a></li>
