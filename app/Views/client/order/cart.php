@@ -1,6 +1,9 @@
 <?php
+
+
 $total_payment = 0;
 $html_cart = '';
+
 if (count($_SESSION['cart']) > 0) {
     foreach ($_SESSION['cart'] as $index => $item) {
         $total = (int)($item['qty']) * (int)($item['price']);
@@ -8,7 +11,7 @@ if (count($_SESSION['cart']) > 0) {
         $colors = is_array($item['colors']) ? implode(', ', $item['colors']) : $item['colors'];
         $sizes = is_array($item['sizes']) ? implode(', ', $item['sizes']) : $item['sizes'];
         $html_cart .= '<div class="container mt-5">
-            <div class="row d-flex justify-content-between">
+            <div class="row d-flex justify-content-between cart-item">
                 <div class="col-md-6">
                     <table>
                         <tr class="mb-3">
@@ -20,13 +23,13 @@ if (count($_SESSION['cart']) > 0) {
                             <td class="ml-3">
                                <div class="ms-3">
                                 <h5>' . $item['product_name'] . '</h5>
-                                <p>' . number_format($item['price'], 0, ',', '.') . ' VNĐ </p>
+                                <p class="price" name="price">' . number_format($item['price'], 0, ',', '.') . ' VNĐ </p>
                                 <p>' . htmlspecialchars($colors) . ' / ' . htmlspecialchars($sizes) . '</p>
                                 <p>
                                     <div class="group-button">
                                         <button type="button" class="soluong border" onclick="thaydoisoluong(\'' . $index . '\', \'-\')" style="width: 30px;">-</button>
-                                        <input type="tel" class="soluong1 text-center border" value="' . $item['qty'] . '" id="soluong' . $index . '" style="width: 90px;" onkeyup="kiemtrasoluong(this, ' . $index . ')">
-                                        <button type="button" class="soluong border" onclick="thaydoisoluong(\'' . $index . '\', \'+\')" style="width: 30px;">+</button>
+                                        <input type="number" data-id="'.$item['id_product'].'" data-colors="'.htmlspecialchars($colors).'" data-sizes="'.htmlspecialchars($sizes).'" class="soluong1 text-center border" value="' . $item['qty'] . '" id="soluong' . $index . '" style="width: 90px;" onkeyup="kiemtrasoluong(this, ' . $index . ')">
+                                        <button type="button" class="soluong border tangqty" onclick="thaydoisoluong(\'' . $index . '\', \'+\')" style="width: 30px;" >+</button>
                                     </div>
                                 </p>
                                </div>
@@ -42,7 +45,7 @@ if (count($_SESSION['cart']) > 0) {
                            </a>
                         </div>
                         <div class="mt-5">
-                            <p>' . number_format($total, 0, ',', '.') . ' VNĐ </p>
+                            <strong class="total">' . number_format($total, 0, ',', '.') . ' VNĐ</strong>
                         </div>
                     </div>
                 </div>
@@ -51,7 +54,6 @@ if (count($_SESSION['cart']) > 0) {
        </div>';
     }
 }
-
 ?>
 
 <section>
@@ -65,17 +67,14 @@ if (count($_SESSION['cart']) > 0) {
     <div class="container">
         <div class="row d-flex justify-content-between">
             <div class="col-md-6 mt-3">
-                <textarea class="form-control w-100" rows="3">
-             Ghi chú
-              </textarea>
+                <textarea class="form-control w-100" rows="3">Ghi chú</textarea>
             </div>
             <div class="col-md-3">
-                <p>Tổng tiền :
-                <h3><?= number_format($total_payment, 0, ',', '.') ?> VNĐ</h3>
-                </p>
+                <p>Tổng tiền:</p>
+                <h3 class="total_payment"><?= number_format($total_payment, 0, ',', '.') ?> VNĐ</h3>
                 <div class="d-flex">
                     <button class="btn btn-primary rounded-0 btn-sm">Tiếp tục mua hàng</button>
-                    <button class="btn btn-primary rounded-0 tn-sm ms-2">Thanh toán</button>
+                    <button class="btn btn-primary rounded-0 btn-sm ms-2">Thanh toán</button>
                 </div>
             </div>
         </div>
@@ -107,8 +106,6 @@ if (count($_SESSION['cart']) > 0) {
         let luong = $('#soluong' + index);
         let soluong = luong.val();
 
-        console.log('Current value:', soluong);
-
         soluong = parseInt(soluong);
 
         if (isNaN(soluong)) {
@@ -125,6 +122,34 @@ if (count($_SESSION['cart']) > 0) {
         } else {
             alert('Cảnh báo nguy hiểm');
         }
+
+        updateQuantity(luong);
+    }
+
+    function updateQuantity(input) {
+        var number = input.val();
+        var priceText = input.closest('td').find(".price").text();
+        var id = input.data("id");
+        var colors = input.data("colors");
+        var sizes = input.data("sizes");
+
+        var price = priceText.replace(/[^\d]/g, '');
+
+        var data = { id: id, colors: colors, sizes: sizes, number: number, price: price };
+
+        $.ajax({
+            url: "../assets/process.php",
+            method: 'post',
+            data: data,
+            dataType: 'json',
+            success: function(response) {
+                input.closest('.cart-item').find(".total").html("<strong>" + response.total + " VNĐ</strong>");
+                $(".total_payment").text(response.total_payment + " VNĐ");
+            },
+            error: function(xhr, status, error) {
+                console.error("AJAX Error: " + status + " " + error);
+            }
+        });
     }
 
     $(() => {
@@ -132,5 +157,10 @@ if (count($_SESSION['cart']) > 0) {
             let imgPath = $(this).attr('src');
             $('#main_img').attr('src', imgPath);
         })
+    });
+
+    $('.tangqty').click(function() {
+        var input = $(this).siblings('.soluong1');
+        updateQuantity(input);
     });
 </script>

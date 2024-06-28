@@ -70,23 +70,26 @@ public function deleteCart() {
 public function deleteProductCart($id_product, $color, $size){
   session_start();
   
-  // Decode the color and size parameters in case they were encoded
+
   $color = urldecode($color);
   $size = urldecode($size);
 
-  // Loop through the cart to find the matching product variant
+ 
   foreach ($_SESSION['cart'] as $index => $item) {
       if ($item['id_product'] == $id_product && $item['colors'] == $color && $item['sizes'] == $size) {
-          // Remove the item from the cart
+      
           unset($_SESSION['cart'][$index]);
-          // Reindex the array to maintain order
+        
           $_SESSION['cart'] = array_values($_SESSION['cart']);
           break;
       }
   }
   
-  // Redirect to the cart view
+
   $this->view("order/cart", []);
+}
+public function payment(){
+    $this->view("order/pay",[]);
 }
 
 
