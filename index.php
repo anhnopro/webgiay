@@ -53,5 +53,8 @@ Router::get("/order/qtycart", [OrderController::class, 'updateCartQuantity']);
 Router::get("/order/deleteProductCart/{id_product}/{color}/{size}", [OrderController::class, "deleteProductCart"]);
 
 Router::get("/payment", [OrderController::class, "payment"]);
+Router::get("/pay/bill", [OrderController::class,'showBill']);
+Router::post("/pay/bill", [OrderController::class,'addBill']);
+// Router::post("/bill",[OrderController::class,'showBillCondition']);
 
 $router->resolve();

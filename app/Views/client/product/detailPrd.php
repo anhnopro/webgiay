@@ -143,6 +143,7 @@
 
 
 </div>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
     $(document).ready(function() {
@@ -150,31 +151,13 @@
             let imgPath = $(this).attr('src');
             $('#main-img').attr('src', imgPath);
         });
-    });
 
-    function thaydoisoluong(toantu) {
-        let luong = $('#soluong');
-        let soluong = luong.val();
-
-        if (toantu === '-') {
-            if (parseInt(soluong) > 1) {
-                luong.val(parseInt(soluong) - 1);
-            }
-        } else if (toantu === '+') {
-            luong.val(parseInt(soluong) + 1);
-        } else {
-            alert('cảnh báo nguy hiểm');
-        }
-    }
-
-    $(() => {
         $('p img').click(function() {
             let imgPath = $(this).attr('src');
-            $('#main_img').attr('src', imgPath);
-        })
-    });
-    document.addEventListener('DOMContentLoaded', function() {
-        // Lựa chọn màu sắc
+            $('#main-img').attr('src', imgPath);
+        });
+
+        // Color selection
         const colorOptions = document.querySelectorAll('.color-option');
         colorOptions.forEach(option => {
             option.addEventListener('click', function() {
@@ -185,7 +168,7 @@
             });
         });
 
-        // Lựa chọn size
+        // Size selection
         const sizeOptions = document.querySelectorAll('.size-option');
         sizeOptions.forEach(option => {
             option.addEventListener('click', function() {
@@ -196,7 +179,7 @@
             });
         });
 
-        // Kiểm tra điều kiện để kích hoạt nút Thêm vào giỏ hàng
+        // Check form validity to enable/disable Add to Cart button
         function checkFormValidity() {
             const selectedColor = document.getElementById('selected-color').value;
             const selectedSize = document.getElementById('selected-size').value;
@@ -208,19 +191,31 @@
             }
         }
 
-        // Xử lý số lượng sản phẩm
+        // Handle quantity change
         const quantityInput = document.getElementById('soluong');
         const decreaseBtn = document.querySelector('button.soluong:nth-child(1)');
         const increaseBtn = document.querySelector('button.soluong:nth-child(3)');
 
         decreaseBtn.addEventListener('click', function() {
-            if (quantityInput.value > 1) {
-                quantityInput.value--;
+            let currentValue = parseInt(quantityInput.value, 10);
+            if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
             }
         });
 
         increaseBtn.addEventListener('click', function() {
-            quantityInput.value++;
+            let currentValue = parseInt(quantityInput.value, 10);
+            quantityInput.value = currentValue + 1;
+        });
+
+        // Ensure the input field allows only valid numeric values and within specified range
+        quantityInput.addEventListener('input', function() {
+            let value = parseInt(this.value, 10);
+            if (isNaN(value) || value < 1) {
+                this.value = 1;
+            } else if (value > 10) {
+                this.value = 10;
+            }
         });
     });
 </script>

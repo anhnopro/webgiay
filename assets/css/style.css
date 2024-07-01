@@ -153,3 +153,9 @@ p img:hover{
  .edit-ds input:hover{
     border: 0.4 solid black;
  }
+ .vertical-line {
+    border-left: 2px solid rgb(213, 213, 213); 
+    height: 90vh; 
+    margin: 0; 
+    padding: 0; 
+ }

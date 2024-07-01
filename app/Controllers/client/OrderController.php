@@ -1,6 +1,9 @@
 <?php
 namespace App\Controllers\Client;
 
+use App\Models\OrderDetailModel;
+use App\Models\OrderModel;
+
 class OrderController extends BaseController{
   
   public function showCart(){
@@ -89,10 +92,48 @@ public function deleteProductCart($id_product, $color, $size){
   $this->view("order/cart", []);
 }
 public function payment(){
+    session_start();
     $this->view("order/pay",[]);
 }
 
+public function showBill(){
+    $bill=OrderDetailModel::listBill();
+    $this->view("order/bill",['bill'=>$bill]);
+}
 
+function addBill() {
+    if (isset($_POST['btn_insertCart'])) {
+        session_start();
+        // Prepare order data
+        $orderData = [
+            'phone_number' => $_POST['phone_number'],
+            'address' => $_POST['address'],
+            'name' => $_POST['name'],
+            'email' => $_POST['email'],
+            'date' => date('Y-m-d')
+        ];
+
+        // Insert order into the orders table
+        $orderId = OrderModel::add($orderData);
+
+        // Insert each product in the cart into the order_details table
+        foreach ($_SESSION['cart'] as $item) {
+            $orderDetailData = [
+                'name_product' => $item['product_name'],
+
+                'total' => $item['qty'] * $item['price'],
+                'qty' => $item['qty'],
+                'id_order' => $orderId,
+                'id_product' => $item['id_product'],
+                'total_payment'=> $totalPayment = array_reduce($_SESSION['cart'], function ($carry, $item) {
+                    return $carry + ($item['qty'] * $item['price']);
+                }, 0)
+               
+            ];
+            OrderDetailModel::add($orderDetailData);
+        }
+    }
+}
 
 
   

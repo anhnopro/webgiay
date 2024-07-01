@@ -1,13 +1,11 @@
 <?php
-
-
 $total_payment = 0;
 $html_cart = '';
-
-if (count($_SESSION['cart']) > 0) {
+if (isset($_SESSION['cart']) && count($_SESSION['cart']) > 0  ) {
     foreach ($_SESSION['cart'] as $index => $item) {
         $total = (int)($item['qty']) * (int)($item['price']);
-        $total_payment += $total;
+         $total_payment += $total;
+       
         $colors = is_array($item['colors']) ? implode(', ', $item['colors']) : $item['colors'];
         $sizes = is_array($item['sizes']) ? implode(', ', $item['sizes']) : $item['sizes'];
         $html_cart .= '<div class="container mt-5">
@@ -45,7 +43,7 @@ if (count($_SESSION['cart']) > 0) {
                            </a>
                         </div>
                         <div class="mt-5">
-                            <strong class="total">' . number_format($total, 0, ',', '.') . ' VNĐ</strong>
+                            <p class="total">' . number_format($total, 0, ',', '.') . ' VNĐ</p>
                         </div>
                     </div>
                 </div>
@@ -53,6 +51,8 @@ if (count($_SESSION['cart']) > 0) {
             </div>
        </div>';
     }
+}else{
+    echo"Không có  sản phẩm trong giỏ hàng";
 }
 ?>
 
@@ -74,7 +74,7 @@ if (count($_SESSION['cart']) > 0) {
                 <h3 class="total_payment"><?= number_format($total_payment, 0, ',', '.') ?> VNĐ</h3>
                 <div class="d-flex">
                     <button class="btn btn-primary rounded-0 btn-sm">Tiếp tục mua hàng</button>
-                    <button class="btn btn-primary rounded-0 btn-sm ms-2">Thanh toán</button>
+                    <a href="<?= ROOT_PATH ?>payment"><button class="btn btn-primary rounded-0 btn-sm ms-2">Thanh toán</button></a>
                 </div>
             </div>
         </div>
@@ -143,7 +143,7 @@ if (count($_SESSION['cart']) > 0) {
             data: data,
             dataType: 'json',
             success: function(response) {
-                input.closest('.cart-item').find(".total").html("<strong>" + response.total + " VNĐ</strong>");
+                input.closest('.cart-item').find(".total").html("<p>" + response.total + " VNĐ</p>");
                 $(".total_payment").text(response.total_payment + " VNĐ");
             },
             error: function(xhr, status, error) {
