@@ -55,7 +55,7 @@
                                 Danh sách sản phẩm
                             </button>
                             <div class="dropdown-menu" >
-                                <a class="dropdown-item" href="<?= ROOT_PATH ?>list/product">Danh sách</a>
+                                <a class="dropdown-item" href="<?= ROOT_PATH ?>product/list">Danh sách</a>
                                 <a class="dropdown-item" href="#">Thêm</a>
                                 <a class="dropdown-item" href="#">Thùng giác</a>
                             </div>
@@ -85,7 +85,7 @@
                             </button>
                             <div class="dropdown-menu" >
                                 <a class="dropdown-item" href="<?= ROOT_PATH ?>attribute/list">Danh sách</a>
-                                <a class="dropdown-item" href="<?= ROOT_PATH ?>add/attribute">Tạo thuộc tính</a>
+                                <a class="dropdown-item" href="<?= ROOT_PATH ?>attribute/add">Tạo thuộc tính</a>
                                 <a class="dropdown-item" href="#">Thùng rác</a>
                             </div>
                         </div>
@@ -98,7 +98,7 @@
                                 Quản lí đơn hàng
                             </button>
                             <div class="dropdown-menu" >
-                                <a class="dropdown-item" href="#">Danh sách đơn hàng</a>
+                                <a class="dropdown-item" href="<?= ROOT_PATH ?>cart/list">Danh sách đơn hàng</a>
                             </div>
                         </div>
                     </a>

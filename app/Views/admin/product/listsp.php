@@ -1,6 +1,6 @@
 <div class="row mt-3 ms-2 container mt-4">
 <div>
-            <div><a href="<?= ROOT_PATH ?>add/product" class="btn btn-success">Thêm sản phẩm</a></div>
+            <div><a href="<?= ROOT_PATH ?>product/add" class="btn btn-success">Thêm sản phẩm</a></div>
         </div>
     <div class="col-md-9 mt-2">
        
@@ -42,9 +42,9 @@
                                     <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#myModal">
                                         Xóa
                                     </a>
-                                    <a class="dropdown-item" href="<?= ROOT_PATH ?>add/product/attr/<?= $product['id'] ?>">Thêm thuộc tính</a>
-                                    <a class="dropdown-item" href="<?= ROOT_PATH ?>update/product/<?= $product['id'] ?>">Sửa</a>
-                                    <a class="dropdown-item" href="<?= ROOT_PATH ?>detail/product/<?= $product['id'] ?>">Xem Chi Tiết</a>
+                                    <a class="dropdown-item" href="<?= ROOT_PATH ?>product/add/attr/<?= $product['id'] ?>">Thêm/Xóa thuộc tính</a>
+                                    <a class="dropdown-item" href="<?= ROOT_PATH ?>product/update/<?= $product['id'] ?>">Sửa</a>
+                                    <a class="dropdown-item" href="<?= ROOT_PATH ?>product/detail/<?= $product['id'] ?>">Xem Chi Tiết</a>
 
 
 
