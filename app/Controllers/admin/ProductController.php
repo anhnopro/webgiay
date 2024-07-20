@@ -11,7 +11,7 @@ class ProductController extends BaseController
 {
     public function list()
     {
-        $products = ProductModel::listPrd();
+        $products = ProductModel::listPrdHome();
         $this->view("product/listsp", ['products' => $products]);
     }
 
@@ -21,6 +21,52 @@ class ProductController extends BaseController
         $size = AttributeModel::where("name", '=', "size")->get();
         $color = AttributeModel::where("name", '=', "color")->get();
         $this->view("product/addprd", ["category" => $category, "size" => $size, 'color' => $color]);
+    }
+    public function add()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            echo print_r($_POST);
+            $data = [
+                'id_product' => $_POST['id_product'],
+                'id_category' => $_POST['id_category'],
+                'name' => $_POST['name'],
+                'price' => $_POST['price'],
+                'sale_price' => $_POST['sale_price'],
+                'status' => 1,
+
+                // 'qty' => $_POST['qty'],
+                'describe' => $_POST['describe']
+            ];
+
+            if (isset($_FILES['path']) && $_FILES['path']['error'] == 0) {
+                $target_dir = "assets/images/";
+                $target_file = $target_dir . basename($_FILES["path"]["name"]);
+                if (move_uploaded_file($_FILES["path"]["tmp_name"], $target_file)) {
+                    $data['image'] = $target_file;
+                }
+            }
+
+         
+            $id_product = ProductModel::add($data);
+
+         
+            if ($id_product) {
+                $sizes = $_POST['sizes'] ?? [];
+                $colors = $_POST['colors'] ?? [];
+
+                foreach ($sizes as $size) {
+                    ProductAttrModel::add(['id_product' => $id_product, 'id_attribute' => $size]);
+                }
+
+                foreach ($colors as $color) {
+                    ProductAttrModel::add(['id_product' => $id_product, 'id_attribute' => $color]);
+                }
+            }
+
+   
+            header("Location: " . ROOT_PATH . "admin/product/list");
+            exit();
+        }
     }
     public function listDetail($id)
     
@@ -91,56 +137,11 @@ class ProductController extends BaseController
     }
     
     
-    public function add()
-    {
-        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            echo print_r($_POST);
-            $data = [
-                'id_product' => $_POST['id_product'],
-                'id_category' => $_POST['id_category'],
-                'name' => $_POST['name'],
-                'price' => $_POST['price'],
-                'sale_price' => $_POST['sale_price'],
-                'status' => 1,
-
-                // 'qty' => $_POST['qty'],
-                'describe' => $_POST['describe']
-            ];
-
-            if (isset($_FILES['path']) && $_FILES['path']['error'] == 0) {
-                $target_dir = "assets/images/";
-                $target_file = $target_dir . basename($_FILES["path"]["name"]);
-                if (move_uploaded_file($_FILES["path"]["tmp_name"], $target_file)) {
-                    $data['image'] = $target_file;
-                }
-            }
-
-         
-            $id_product = ProductModel::add($data);
-
-         
-            if ($id_product) {
-                $sizes = $_POST['sizes'] ?? [];
-                $colors = $_POST['colors'] ?? [];
-
-                foreach ($sizes as $size) {
-                    ProductAttrModel::add(['id_product' => $id_product, 'id_attribute' => $size]);
-                }
-
-                foreach ($colors as $color) {
-                    ProductAttrModel::add(['id_product' => $id_product, 'id_attribute' => $color]);
-                }
-            }
-
    
-            header("Location: " . ROOT_PATH . "list/product");
-            exit();
-        }
-    }
     public function showUpdate($id)
     {    $category=CategoryModel::all();
         $products = ProductModel::listprdDetail($id);
-        $this->view("product/edit", ['products' => $products,"category"=>$category]);
+        $this->view("/product/edit", ['products' => $products,"category"=>$category]);
     }
     public function update($id)
     {
@@ -171,7 +172,7 @@ class ProductController extends BaseController
             ProductModel::updateProductAttributes($id, 'size', $sizes);
             ProductModel::updateProductAttributes($id, 'color', $colors);
     
-            header('Location: ' . ROOT_PATH . 'list/product');
+            header('Location: ' . ROOT_PATH . 'admin/product/list');
             exit();
         }
     }

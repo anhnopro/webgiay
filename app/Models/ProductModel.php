@@ -8,7 +8,7 @@ class ProductModel extends BaseModel
 {
     protected $primary = 'id_product';
     protected $tableName = "product";
-    public static function listPrd()
+    public static function listPrdHome()
     {
         $model = new static;
 
@@ -18,10 +18,12 @@ class ProductModel extends BaseModel
          p.sale_price, 
         p.image,
          p.describe, 
+         p.status,
          c.name AS category_name,
           c.id_category 
         from product p join category c on p.id_category =c.id_category 
-        ORDER BY p.id_product";
+        where p.status=1
+        ORDER BY p.id_product limit 8 ";
         $stmt = $model->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

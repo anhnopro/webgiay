@@ -1,7 +1,7 @@
 <div style="width: calc(100% - 220px);">
     <div class="container p-4">
         <h5 class="p-4">Form chỉnh sửa thuộc tính sản phẩm</h5>
-        <form action="<?= ROOT_PATH ?>product/update/attr" method="post" enctype="multipart/form-data">
+        <form action="<?= ROOT_PATH ?>admin/product/update/attr" method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="id_product" class="form-label">Mã sản phẩm</label>
                 <input type="hidden" class="form-control" id="id_product" value="<?= $products['id'] ?>" name="id_product">

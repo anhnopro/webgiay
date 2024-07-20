@@ -28,7 +28,7 @@
                         <h4>Giới thiệu</h4>
                         <p>Mega Shoes trang mua sắm trực tuyến của thương hiệu thời trang Lama,
                             thời trang nam, nữ, phụ kiện, giúp bạn tiếp cận xu hướng thời trang mới nhất.</p>
-                        <img src="images/logobct.png">
+                        <img src="assets/images/logobct.png">
                     </div>
                     <div class="col-md-2">
                         <h4 class="text-left">Liên kết</h4>

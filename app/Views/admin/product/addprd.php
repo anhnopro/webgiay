@@ -1,7 +1,7 @@
 <div style="width: calc(100% - 220px);">
   <div class="container p-4">
     <h5 class="p-4">Form thêm sản phẩm</h5>
-    <form action="<?= ROOT_PATH ?>product/add" method="post" enctype="multipart/form-data">
+    <form action="<?= ROOT_PATH ?>admin/product/add" method="post" enctype="multipart/form-data">
       <div>
         <p>Danh mục</p>
         <select name="id_category" id="category" class="form-control">

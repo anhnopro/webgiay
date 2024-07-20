@@ -55,7 +55,7 @@
                                 Danh sách sản phẩm
                             </button>
                             <div class="dropdown-menu" >
-                                <a class="dropdown-item" href="<?= ROOT_PATH ?>product/list">Danh sách</a>
+                                <a class="dropdown-item" href="<?= ROOT_PATH ?>admin/product/list">Danh sách</a>
                                 <a class="dropdown-item" href="#">Thêm</a>
                                 <a class="dropdown-item" href="#">Thùng giác</a>
                             </div>
@@ -69,8 +69,8 @@
                                 Danh mục sản phẩm
                             </button>
                             <div class="dropdown-menu" >
-                                <a class="dropdown-item" href="<?= ROOT_PATH ?>category/list">Danh sách</a>
-                                <a class="dropdown-item" href="<?= ROOT_PATH ?>category/add">Tạo danh mục</a>
+                                <a class="dropdown-item" href="<?= ROOT_PATH ?>admin/category/list">Danh sách</a>
+                                <a class="dropdown-item" href="<?= ROOT_PATH ?>admin/category/add">Tạo danh mục</a>
                                 <a class="dropdown-item" href="#">Sửa tên danh mục</a>
                                 <a class="dropdown-item" href="#">Thùng rác</a>
                             </div>
@@ -84,8 +84,8 @@
                                 Thuộc tính sản phẩm
                             </button>
                             <div class="dropdown-menu" >
-                                <a class="dropdown-item" href="<?= ROOT_PATH ?>attribute/list">Danh sách</a>
-                                <a class="dropdown-item" href="<?= ROOT_PATH ?>attribute/add">Tạo thuộc tính</a>
+                                <a class="dropdown-item" href="<?= ROOT_PATH ?>admin/attribute/list">Danh sách</a>
+                                <a class="dropdown-item" href="<?= ROOT_PATH ?>admin/attribute/add">Tạo thuộc tính</a>
                                 <a class="dropdown-item" href="#">Thùng rác</a>
                             </div>
                         </div>
@@ -98,7 +98,7 @@
                                 Quản lí đơn hàng
                             </button>
                             <div class="dropdown-menu" >
-                                <a class="dropdown-item" href="<?= ROOT_PATH ?>cart/list">Danh sách đơn hàng</a>
+                                <a class="dropdown-item" href="<?= ROOT_PATH ?>admin/order/list">Danh sách đơn hàng</a>
                             </div>
                         </div>
                     </a>

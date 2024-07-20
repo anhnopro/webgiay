@@ -52,8 +52,8 @@
             <?php endif; ?>
         </div>
         <div class="modal-footer text-center">
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><a href="<?= ROOT_PATH ?>cart/list" class="nav-link">Close</a></button>
-            <button type="button" class="btn btn-success ms-2" data-bs-dismiss="modal"><a href="<?= ROOT_PATH ?>cart/list" class="nav-link">Sửa</a></button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><a href="<?= ROOT_PATH ?>admin/order/list" class="nav-link">Close</a></button>
+            
         </div>
     </div>
 </div>

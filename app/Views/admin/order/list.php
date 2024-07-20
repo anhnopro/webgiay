@@ -26,8 +26,8 @@
                                             <div class="dropdown">
                                                 <button class="btn btn-light " type="button" id="dropdownMenuButton">...</button>
                                                 <div class="dropdown-menu">
-                                                    <a class="dropdown-item" href="<?= ROOT_PATH ?>cart/edit/<?= $list['id_order'] ?>">Xử lí đơn hàng</a>
-                                                    <a class="dropdown-item" href="<?= ROOT_PATH ?>cart/show/<?= $list['id_order'] ?>">Xem</a>
+                                                    <a class="dropdown-item" href="<?= ROOT_PATH ?>admin/order/edit/<?= $list['id_order'] ?>">Xử lí đơn hàng</a>
+                                                    <a class="dropdown-item" href="<?= ROOT_PATH ?>admin/order/show/<?= $list['id_order'] ?>">Xem</a>
                                                 </div>
                                             </div>
                                         </td>

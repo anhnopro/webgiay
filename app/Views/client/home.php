@@ -4,14 +4,14 @@
             <h1 class="text-center">Sản phẩm mới</h1>
             <div class="row mt-4">
                 <div class="col-md-6 mb-4">
-                    <img src="assets/images/sp15.jpg" width="650" height="400" class="zoom-img img-fluid">
+                    <img src="assets/images/sp15.jpg" width="500" height="400" class="zoom-img img-fluid">
                 </div>
                 <?php foreach ($products as $product) : ?>
                    
                     <div class="col-md-2 mb-5">
                     <a href="<?= ROOT_PATH ?>product/detail/<?= $product['id_product'] ?>" class="nav-link">
                         <img src="<?= ROOT_PATH ?>/<?= $product['image'] ?>" width="100%" height="100%" class="zoom-img img-fluid" >
-                        <h4><?= $product['name'] ?></h4>
+                        <h6><?= $product['name'] ?></h6>
                         <span>Giá: <?= number_format($product['price'], 0, ',', '.') . ' VND' ?></span>
                         </a>
                     </div>
@@ -103,62 +103,29 @@
     </section>
 
     <section>
-        <div class="container-fluid">
-            <h1 class="text-center mt-4">Sản phẩm mới</h1>
+        <div class="container-fluid mt-4">
+            <h1 class="text-center">Sản phẩm mới</h1>
             <div class="row mt-4">
-                <div class="col-md-6">
-                    <img src="images/sp15.jpg" width="550" height="300" class="zoom-img img-fluid">
+                <div class="col-md-6 mb-4">
+                    <img src="assets/images/sp15.jpg" width="500" height="400" class="zoom-img img-fluid">
                 </div>
-                <div class="col-md-2 mb-3">
-                    <img src="images/sp1.jpg" width="200" height="200" class="zoom-img img-fluid">
-                    <h4>Tên sản phẩm</h4>
-                    <span>400.000VNĐ</span>
-                </div>
-                <div class="col-md-2 mb-3">
-                    <img src="images/sp2.jpg" width="200" height="200" class="zoom-img img-fluid">
-                    <h4>Tên sản phẩm</h4>
-                    <span>400.000VNĐ</span>
-                </div>
-                <div class="col-md-2 mb-3">
-                    <img src="images/sp3.jpg" width="200" height="200" class="zoom-img img-fluid">
-                    <h4>Tên sản phẩm</h4>
-                    <span>400.000VNĐ</span>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2 mb-3">
-                    <img src="images/sp3.jpg" width="200" height="200" class="zoom-img img-fluid">
-                    <h4>Tên sản phẩm</h4>
-                    <span>400.000VNĐ</span>
-                </div>
-                <div class="col-md-2 mb-3">
-                    <img src="images/sp4.jpg" width="200" height="200" class="zoom-img img-fluid">
-                    <h4>Tên sản phẩm</h4>
-                    <span>400.000VNĐ</span>
-                </div>
-                <div class="col-md-2 mb-3">
-                    <img src="images/sp5.jpg" width="200" height="200" class="zoom-img img-fluid">
-                    <h4>Tên sản phẩm</h4>
-                    <span>400.000VNĐ</span>
-                </div>
-                <div class="col-md-2 mb-3">
-                    <img src="images/sp6.jpg" width="200" height="200" class="zoom-img img-fluid">
-                    <h4>Tên sản phẩm</h4>
-                    <span>400.000VNĐ</span>
-                </div>
-                <div class="col-md-2 mb-3">
-                    <img src="images/sp7.jpg" width="200" height="200" class="zoom-img img-fluid">
-                    <h4>Tên sản phẩm</h4>
-                    <span>400.000VNĐ</span>
-                </div>
-                <div class="col-md-2 mb-3">
-                    <img src="images/sp8.jpg" width="200" height="200" class="zoom-img img-fluid">
-                    <h4>Tên sản phẩm</h4>
-                    <span>400.000VNĐ</span>
-                </div>
+                <?php foreach ($products as $product) : ?>
+                   
+                    <div class="col-md-2 mb-5">
+                    <a href="<?= ROOT_PATH ?>product/detail/<?= $product['id_product'] ?>" class="nav-link">
+                        <img src="<?= ROOT_PATH ?>/<?= $product['image'] ?>" width="100%" height="100%" class="zoom-img img-fluid" >
+                        <h6><?= $product['name'] ?></h6>
+                        <span>Giá: <?= number_format($product['price'], 0, ',', '.') . ' VND' ?></span>
+                        </a>
+                    </div>
+                 
+                <?php endforeach; ?>
 
+               
             </div>
+        
         </div>
+
     </section>
     <section>
         <div class="container-fluid" style="margin-top: 100px;">
@@ -171,7 +138,7 @@
                         cũng như uy tín của mình trong việc hỗ trợ bạn mua sắm hàng hiệu dễ dàng và tiện lợi hơn bao giờ hết.</p>
                 </div>
                 <div class="col-md-6">
-                    <img src="images/sp16.jpg" width="600" height="400">
+                    <img src="assets/images/sp16.jpg" width="600" height="400">
                 </div>
             </div>
         </div>
@@ -180,40 +147,40 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-2">
-                    <img src="images/1.jpg" width="205px" class="zoom-img img-fluid">
+                    <img src="assets/images/1.jpg" width="205px" class="zoom-img img-fluid">
                 </div>
                 <div class="col-md-2">
-                    <img src="images/2.jpg" width="205px" class="zoom-img img-fluid">
+                    <img src="assets/images/2.jpg" width="205px" class="zoom-img img-fluid">
                 </div>
                 <div class="col-md-2">
-                    <img src="images/3.jpg" width="205px" class="zoom-img img-fluid">
+                    <img src="assets/images/3.jpg" width="205px" class="zoom-img img-fluid">
                 </div>
                 <div class="col-md-2">
-                    <img src="images/4.jpg" width="205px" class="zoom-img img-fluid">
+                    <img src="assets/images/4.jpg" width="205px" class="zoom-img img-fluid">
                 </div>
                 <div class="col-md-2">
-                    <img src="images/5.jpg" width="205px" class="zoom-img img-fluid">
+                    <img src="assets/images/5.jpg" width="205px" class="zoom-img img-fluid">
                 </div>
                 <div class="col-md-2">
-                    <img src="images/6.jpg" width="205px" class="zoom-img img-fluid">
+                    <img src="assets/images/6.jpg" width="205px" class="zoom-img img-fluid">
                 </div>
                 <div class="col-md-2">
-                    <img src="images/6.jpg" width="205px" class="zoom-img img-fluid">
+                    <img src="assets/images/6.jpg" width="205px" class="zoom-img img-fluid">
                 </div>
                 <div class="col-md-2">
-                    <img src="images/7.jpg" width="205px" class="zoom-img img-fluid">
+                    <img src="assets/images/7.jpg" width="205px" class="zoom-img img-fluid">
                 </div>
                 <div class="col-md-2">
-                    <img src="images/8.jpg" width="205px" class="zoom-img img-fluid">
+                    <img src="assets/images/8.jpg" width="205px" class="zoom-img img-fluid">
                 </div>
                 <div class="col-md-2">
-                    <img src="images/9.jpg" width="205px" class="zoom-img img-fluid">
+                    <img src="assets/images/9.jpg" width="205px" class="zoom-img img-fluid">
                 </div>
                 <div class="col-md-2">
-                    <img src="images/10.jpg" width="205px" class="zoom-img img-fluid">
+                    <img src="assets/images/10.jpg" width="205px" class="zoom-img img-fluid">
                 </div>
                 <div class="col-md-2">
-                    <img src="images/11.jpg" width="205px" class="zoom-img img-fluid">
+                    <img src="assets/images/11.jpg" width="205px" class="zoom-img img-fluid">
                 </div>
 
             </div>

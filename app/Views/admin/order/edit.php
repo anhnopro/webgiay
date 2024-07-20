@@ -2,7 +2,7 @@
     <div class="container p-4">
         <h5 class="p-4">Tình trạng đơn hàng</h5>
         <?php foreach($orders as $order): ?>
-        <form action="<?= ROOT_PATH ?>cart/edit/<?= $order['id_order'] ?>" method="POST">
+        <form action="<?= ROOT_PATH ?>admin/order/edit/<?= $order['id_order'] ?>" method="POST">
             <input type="hidden" name="id_order" value="<?= $order['id_order']; ?>">
             <div class="mt-3 mb-3">
                 <p>Trạng thái đơn hàng</p>
