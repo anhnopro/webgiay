@@ -203,6 +203,7 @@ if (session_status() === PHP_SESSION_NONE) {
     .edit-ds input:hover {
         border: 0.4 solid black;
     }
+    
 </style>
 
 <body>
@@ -267,7 +268,7 @@ if (session_status() === PHP_SESSION_NONE) {
             <ul class="list-inline d-flex justify-content-center">
                 <li><a href="<?= ROOT_PATH ?>home" class="m-3">Trang chủ</a></li>
                 <li><a href="" class="m-3">Giới thiệu</a></li>
-                <li><a href="sanpham.html" class="m-3">Danh mục sản phẩm</a></li>
+                <li><a href="<?= ROOT_PATH ?>list/productCategory" class="m-3">Danh mục sản phẩm</a></li>
                 <li><a href="tintuc.html" class="m-3">Tin tức </a></li>
                 <li><a href="lienhe.html" class="m-3">Liên hệ</a></li>
             </ul>

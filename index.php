@@ -4,6 +4,7 @@ use App\Controllers\Admin\AttributeController as AdminAttributeController;
 use App\Controllers\Admin\ProductController as AdminProductController;
 use App\Controllers\Admin\CategoryController;
 use App\Controllers\Admin\OrderController as AdminOrderController;
+use App\Controllers\Client\CategoryController as ClientCategoryController;
 use App\Controllers\Client\OrderController;
 use App\Controllers\Client\ProductController as ClientProductController;
 use App\Controllers\Client\UserController;
@@ -54,12 +55,14 @@ Router::prefix('admin', function() {
 // Client routes
 Router::get('/home', [ClientProductController::class, 'home']);
 Router::get('/product/detail/{id}', [ClientProductController::class, 'detailPrd']);
+Router::get("/list/productCategory",[ClientCategoryController::class,'lisPrdCate']);
 Router::prefix('order', function() {
     Router::get('addCart', [OrderController::class, 'showCart']);
     Router::post('addCart', [OrderController::class, 'addCart']);
     Router::get('deleteCart', [OrderController::class, 'deleteCart']);
     Router::get('qtycart', [OrderController::class, 'updateCartQuantity']);
     Router::get('deleteProductCart/{id_product}/{color}/{size}', [OrderController::class, 'deleteProductCart']);
+   
 });
 
 Router::get('/payment', [OrderController::class, 'payment']);
