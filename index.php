@@ -6,6 +6,7 @@ use App\Controllers\Admin\CategoryController;
 use App\Controllers\Admin\OrderController as AdminOrderController;
 use App\Controllers\Client\OrderController;
 use App\Controllers\Client\ProductController as ClientProductController;
+use App\Controllers\Client\UserController;
 use App\Router;
 
 require_once __DIR__ . "/vendor/autoload.php";
@@ -64,6 +65,15 @@ Router::prefix('order', function() {
 Router::get('/payment', [OrderController::class, 'payment']);
 Router::get('/pay/bill', [OrderController::class, 'showBill']);
 Router::post('/pay/bill', [OrderController::class, 'addBill']);
+
+//user 
+Router::prefix('user/',function(){
+ Router::get('login',[UserController::class,'showLogin']);
+ Router::post('login',[UserController::class,'login']);
+ Router::get("logout",[UserController::class,'logout']);
+ Router::get("register",[UserController::class,'showRegister']);
+ Router::post("register",[UserController::class,'register']);
+});
 
 $router->resolve();
 ?>

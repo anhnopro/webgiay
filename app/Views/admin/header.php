@@ -1,3 +1,9 @@
+<?php
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,12 +42,14 @@
                 </li>
             </ul>
             <ul class="navbar-nav">
+            <?php if (isset($_SESSION['user_id'])): ?>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Xin chào bạn:</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Đức Anh</a>
+                    <a class="nav-link" href="#"><?= htmlspecialchars($_SESSION['user_nickname']) ?></a>
                 </li>
+                <?php endif; ?>
             </ul>
         </div>
     </nav>

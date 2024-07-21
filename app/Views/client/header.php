@@ -1,3 +1,10 @@
+<?php
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+?>
+
 <html lang="en">
 
 <head>
@@ -207,40 +214,67 @@
             <span class="small text-warning">09771*4545</span>
         </div>
         <div class="container">
-            <div class="d-flex justify-content-between mt-4">
-                <div></div>
-                <h1 class="text-center  maulogo ">Mega Shoes</h1>
-                <div class="mt-2 d-flex align-items-center">
-                    <i class='bx bx-search me-3'>
-                        <a href="<?= ROOT_PATH ?>/"></a>
-                    </i>
+    <div class="row mt-4 align-items-center">
+        <div class="col-md-4 ">
+            <!-- Empty div or add any content if needed -->
+        </div>
+        <div class="col-md-4">
+            <h1 class="text-center maulogo">Mega Shoes</h1>
+        </div>
+        <div class="col-md-4 d-flex justify-content-end mt-2">
+        <div class="d-flex align-items-center">
+                <!-- Search Icon -->
+               
 
-                    <a href="dangnhap.html" class="me-3">
-                        <i class='bx bx-user-circle'></i>
-                    </a>
+                <!-- User Navigation -->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid">
+                        <div class="d-flex align-items-center">
+                            <?php if (isset($_SESSION['user_id'])): ?>
+                                <?php if(isset($_SESSION['role']) && $_SESSION['role']==1): ?>
+                                    <span class="me-3 ">
+                                    
+                                    <?= htmlspecialchars($_SESSION['user_nickname']) ?>
+                               </span>
+                                <?php else: ?>    
+                                    <a href="<?= ROOT_PATH ?>admin/product/list" class="btn btn-primary btn-sm me-2">Truy cập trang quản trị</a>
+                                    <?php endif; ?>
+                               
+                                <a href="<?= ROOT_PATH ?>user/logout" class="btn btn-outline-danger btn-sm">Logout</a>
+                            <?php else: ?>
+                                <a href="<?= ROOT_PATH ?>user/login" class="nav-link  ">
+                                    <i class='bx bx-user-circle'></i>
+                                </a>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </nav>
+                <a href="<?= ROOT_PATH ?>/" class="me-1 nav-link">
+                    <i class='bx bx-search '></i>
+                </a>
 
-                    <a href="<?= ROOT_PATH ?>order/addCart" class="nav-link">
-                        <i class='bx bx-shopping-bag'></i>
-                    </a>
-                </div>
-
-
-            </div>
-
-            <div>
-
-                <div class="list-ds  mt-3">
-                    <ul class="list-inline  d-flex justify-content-center">
-                        <li><a href="<?= ROOT_PATH ?>home" class="m-3">Trang chủ</a></li>
-                        <li><a href="" class="m-3">Giới thiệu</a></li>
-                        <li><a href="sanpham.html" class="m-3">Danh mục sản phẩm</a></li>
-                        <li><a href="tintuc.html" class="m-3">Tin tức </a></li>
-                        <li><a href="lienhe.html" class="m-3">Liên hệ</a></li>
-                    </ul>
-                </div>
-
+                <!-- Shopping Bag Icon -->
+                <a href="<?= ROOT_PATH ?>order/addCart" class="me-1 nav-link">
+                    <i class='bx bx-shopping-bag'></i>
+                </a>
             </div>
         </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="list-ds mt-3">
+            <ul class="list-inline d-flex justify-content-center">
+                <li><a href="<?= ROOT_PATH ?>home" class="m-3">Trang chủ</a></li>
+                <li><a href="" class="m-3">Giới thiệu</a></li>
+                <li><a href="sanpham.html" class="m-3">Danh mục sản phẩm</a></li>
+                <li><a href="tintuc.html" class="m-3">Tin tức </a></li>
+                <li><a href="lienhe.html" class="m-3">Liên hệ</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
         <section>
             <div class="container-fluid bgtop1 text-right">
                 <img src="<?= ROOT_PATH ?>assets/images/banner3.jpg" style="width: 100%;height: auto;">

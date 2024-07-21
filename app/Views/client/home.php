@@ -9,9 +9,9 @@
                 <?php foreach ($products as $product) : ?>
                    
                     <div class="col-md-2 mb-5">
-                    <a href="<?= ROOT_PATH ?>product/detail/<?= $product['id_product'] ?>" class="nav-link">
+                    <a href="<?= ROOT_PATH ?>product/detail/<?= $product['id'] ?>" class="nav-link">
                         <img src="<?= ROOT_PATH ?>/<?= $product['image'] ?>" width="100%" height="100%" class="zoom-img img-fluid" >
-                        <h6><?= $product['name'] ?></h6>
+                        <h6><?= $product['product_name'] ?></h6>
                         <span>Giá: <?= number_format($product['price'], 0, ',', '.') . ' VND' ?></span>
                         </a>
                     </div>
@@ -109,12 +109,12 @@
                 <div class="col-md-6 mb-4">
                     <img src="assets/images/sp15.jpg" width="500" height="400" class="zoom-img img-fluid">
                 </div>
-                <?php foreach ($products as $product) : ?>
+                <?php foreach ($productHot as $product) : ?>
                    
                     <div class="col-md-2 mb-5">
-                    <a href="<?= ROOT_PATH ?>product/detail/<?= $product['id_product'] ?>" class="nav-link">
+                    <a href="<?= ROOT_PATH ?>product/detail/<?= $product['id'] ?>" class="nav-link">
                         <img src="<?= ROOT_PATH ?>/<?= $product['image'] ?>" width="100%" height="100%" class="zoom-img img-fluid" >
-                        <h6><?= $product['name'] ?></h6>
+                        <h6><?= $product['product_name'] ?></h6>
                         <span>Giá: <?= number_format($product['price'], 0, ',', '.') . ' VND' ?></span>
                         </a>
                     </div>

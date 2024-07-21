@@ -13,12 +13,12 @@ class OrderController extends BaseController{
   public function addCart() {
     session_start();
 
-    // Khởi tạo giỏ hàng nếu chưa tồn tại
+
     if (!isset($_SESSION['cart'])) {
         $_SESSION['cart'] = [];
     }
 
-    // Lấy thông tin sản phẩm từ POST
+   
     $id_product = $_POST['id_product'];
     $qty = $_POST['qty'];
     $product_name = $_POST['product_name'];
@@ -29,20 +29,20 @@ class OrderController extends BaseController{
 
     $flag = false;
 
-    // Duyệt qua các sản phẩm trong giỏ hàng
+ 
     foreach ($_SESSION['cart'] as &$item) {
-        // Nếu sản phẩm đã có trong giỏ hàng với cùng mã, size và màu sắc
+     
         if ($item['id_product'] == $id_product && $item['sizes'] == $size && $item['colors'] == $color) {
             $flag = true;
-            // Tăng số lượng sản phẩm
+          
             $item['qty'] += $qty;
             break;
         }
     }
 
-    // Nếu không có sản phẩm nào trùng mã, size và màu sắc
+
     if (!$flag) {
-        // Tạo một mảng mới cho sản phẩm
+  
         $product = [
             'id_product' => $id_product,
             'qty' => $qty,
@@ -56,7 +56,7 @@ class OrderController extends BaseController{
         $_SESSION['cart'][] = $product;
     }
 
-    // Chuyển hướng người dùng đến trang giỏ hàng sau khi thêm sản phẩm thành công
+
     header("location:".ROOT_PATH."order/addCart");
 }
 
@@ -104,7 +104,7 @@ public function showBill(){
 function addBill() {
     if (isset($_POST['btn_insertCart'])) {
         session_start();
-        // Prepare order data
+     
         $orderData = [
             'phone_number' => $_POST['phone_number'],
             'address' => $_POST['address'],
@@ -113,10 +113,10 @@ function addBill() {
             'date' => date('Y-m-d')
         ];
 
-        // Insert order into the orders table
+   
         $orderId = OrderModel::add($orderData);
 
-        // Insert each product in the cart into the order_details table
+
         foreach ($_SESSION['cart'] as $item) {
             $orderDetailData = [
                 'name_product' => $item['product_name'],

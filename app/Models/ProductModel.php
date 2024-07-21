@@ -23,10 +23,48 @@ class ProductModel extends BaseModel
           c.id_category 
         from product p join category c on p.id_category =c.id_category 
         where p.status=1
-        ORDER BY p.id_product limit 8 ";
+        ORDER BY p.id_product limit 9 ";
         $stmt = $model->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public static function listPrdHomeHOT()
+    {
+        $model = new static;
+
+        $sql = "SELECT 
+                p.id_product as id, 
+                p.name AS product_name,
+                p.price, 
+                p.sale_price, 
+                p.image,
+                p.describe, 
+                p.status,
+                c.name AS category_name,
+                c.id_category 
+            FROM 
+                product p 
+            JOIN 
+                category c 
+            ON 
+                p.id_category = c.id_category 
+            WHERE 
+                p.status = 1 
+            ORDER BY 
+                p.view DESC, 
+                p.id_product
+            LIMIT 9
+            ";
+        $stmt = $model->conn->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    public static function view($id)
+    {
+        $model = new static;
+        $sql = "UPDATE product SET view = view + 1 WHERE id_product = :id";
+        $stmt = $model->conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
     }
 
     public static function listprdDetail($id)
@@ -40,6 +78,7 @@ class ProductModel extends BaseModel
     p.price,
     p.sale_price,
     p.describe,
+    p.view,
     c.name AS category_name,
     GROUP_CONCAT(CONCAT(a.name, ': ', a.value) SEPARATOR ', ') AS attributes,
      GROUP_CONCAT(CASE WHEN a.name = 'size' THEN a.value END) AS sizes,
@@ -54,7 +93,7 @@ class ProductModel extends BaseModel
         $stmt->execute(['id' => $id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
-   
+
     public static function updateProduct($id, $data)
     {
         $model = new static;
@@ -108,5 +147,4 @@ class ProductModel extends BaseModel
             }
         }
     }
-    
 }
