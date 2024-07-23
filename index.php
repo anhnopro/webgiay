@@ -4,6 +4,7 @@ use App\Controllers\Admin\AttributeController as AdminAttributeController;
 use App\Controllers\Admin\ProductController as AdminProductController;
 use App\Controllers\Admin\CategoryController;
 use App\Controllers\Admin\OrderController as AdminOrderController;
+use App\Controllers\Admin\UserController as AdminUserController;
 use App\Controllers\Client\CategoryController as ClientCategoryController;
 use App\Controllers\Client\OrderController;
 use App\Controllers\Client\ProductController as ClientProductController;
@@ -49,6 +50,9 @@ Router::prefix('admin', function() {
         Router::get('show/{id}', [AdminOrderController::class, 'billId']);
         Router::get('edit/{id}', [AdminOrderController::class, 'showEdit']);
         Router::post('edit/{id}', [AdminOrderController::class, 'edit']);
+    });
+    Router::prefix('user',function(){
+        Router::get('list',[AdminUserController::class,'listUser']);
     });
 });
 

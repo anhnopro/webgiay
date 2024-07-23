@@ -111,6 +111,18 @@ if (session_status() === PHP_SESSION_NONE) {
                         </div>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <div class="dropdown">
+                            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton" >
+                              Tài khoản
+                            </button>
+                            <div class="dropdown-menu" >
+                                <a class="dropdown-item" href="<?= ROOT_PATH ?>admin/user/list">Danh sách tài khoản</a>
+                            </div>
+                        </div>
+                    </a>
+                </li>
             </ul>
         </div>
         <div style="width: calc(100% - 220px);">

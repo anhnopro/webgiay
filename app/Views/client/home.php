@@ -54,10 +54,10 @@
     </section>
     <section style="margin-top: 130px;">
         <div class="container-fluid">
-            <div class="row no-gutters">
+            <div class="row">
                 <div class="col-md-3">
                     <div class="position-relative">
-                        <img src="assets/images/mau1.jpg" class="zoom-img g-0" style="width: 300px; height: 400px;">
+                        <img src="assets/images/mau1.jpg" class="zoom-img g-0" style=" height: 400px;">
                         <div class="position-absolute text-white" style="top: 69%; left: 5%;">
                             <p>Khuyến mại tới 50%</p>
                             <h3>Phụ kiện thời trang</h3>
@@ -68,7 +68,7 @@
 
                 <div class="col-md-3">
                     <div class="position-relative">
-                        <img src="assets/images/mau2.jpg" class="zoom-img g-0" style="width: 300px; height: 400px;">
+                        <img src="assets/images/mau2.jpg" class="zoom-img g-0" style=" height: 400px;">
                         <div class="position-absolute text-white" style="top: 69%; left: 5%;">
                             <p>Khuyến mại tới 50%</p>
                             <h3>Phụ kiện thời trang</h3>
@@ -79,7 +79,7 @@
 
                 <div class="col-md-3">
                     <div class="position-relative">
-                        <img src="assets/images/mau3.jpg" class="zoom-img g-0" style="width: 300px; height: 400px;">
+                        <img src="assets/images/mau3.jpg" class="zoom-img g-0" style=" height: 400px;">
                         <div class="position-absolute text-white" style="top: 69%; left: 5%;">
                             <p>Khuyến mại tới 50%</p>
                             <h3>Phụ kiện thời trang</h3>
@@ -90,7 +90,7 @@
 
                 <div class="col-md-3">
                     <div class="position-relative">
-                        <img src="assets/images/mau4.jpg" class="zoom-img g-0" style="width: 300px; height: 400px;">
+                        <img src="assets/images/mau4.jpg" class="zoom-img g-0" style=" height: 400px;">
                         <div class="position-absolute text-white" style="top: 69%; left: 5%;">
                             <p>Khuyến mại tới 50%</p>
                             <h3>Phụ kiện thời trang</h3>
@@ -147,40 +147,40 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-2">
-                    <img src="assets/images/1.jpg" width="205px" class="zoom-img img-fluid">
+                    <img src="assets/images/1.jpg">
                 </div>
                 <div class="col-md-2">
-                    <img src="assets/images/2.jpg" width="205px" class="zoom-img img-fluid">
+                    <img src="assets/images/2.jpg" >
                 </div>
                 <div class="col-md-2">
-                    <img src="assets/images/3.jpg" width="205px" class="zoom-img img-fluid">
+                    <img src="assets/images/3.jpg" >
                 </div>
                 <div class="col-md-2">
-                    <img src="assets/images/4.jpg" width="205px" class="zoom-img img-fluid">
+                    <img src="assets/images/4.jpg" >
                 </div>
                 <div class="col-md-2">
-                    <img src="assets/images/5.jpg" width="205px" class="zoom-img img-fluid">
+                    <img src="assets/images/5.jpg" >
                 </div>
                 <div class="col-md-2">
-                    <img src="assets/images/6.jpg" width="205px" class="zoom-img img-fluid">
+                    <img src="assets/images/6.jpg" >
                 </div>
                 <div class="col-md-2">
-                    <img src="assets/images/6.jpg" width="205px" class="zoom-img img-fluid">
+                    <img src="assets/images/6.jpg" >
                 </div>
                 <div class="col-md-2">
-                    <img src="assets/images/7.jpg" width="205px" class="zoom-img img-fluid">
+                    <img src="assets/images/7.jpg" >
                 </div>
                 <div class="col-md-2">
-                    <img src="assets/images/8.jpg" width="205px" class="zoom-img img-fluid">
+                    <img src="assets/images/8.jpg" >
                 </div>
                 <div class="col-md-2">
-                    <img src="assets/images/9.jpg" width="205px" class="zoom-img img-fluid">
+                    <img src="assets/images/9.jpg" >
                 </div>
                 <div class="col-md-2">
-                    <img src="assets/images/10.jpg" width="205px" class="zoom-img img-fluid">
+                    <img src="assets/images/10.jpg">
                 </div>
                 <div class="col-md-2">
-                    <img src="assets/images/11.jpg" width="205px" class="zoom-img img-fluid">
+                    <img src="assets/images/11.jpg" >
                 </div>
 
             </div>
